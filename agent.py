@@ -26,7 +26,6 @@ class Agent:
 
     def improve_params(self):
         gt = self.estimate_return()
-        
         self.loss = self.agent_control.improve_params(gt, self.episode_obs, self.episode_action)
 
     def estimate_return(self):

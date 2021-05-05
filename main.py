@@ -6,7 +6,8 @@ import time
 #-----------------------------PARAMETERS-----------------------------
 HYPERPARAMS = {
     'learning_rate': 0.001,
-    'gamma': 0.99
+    'gamma': 0.99,
+    'baseline': True
 }
 MAX_EPISODES = 2000
 LOG_DIR = 'content/runs'
