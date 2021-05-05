@@ -18,16 +18,11 @@ class AgentControl:
 
     def improve_params(self, gt, obs, actions):
         gt_tensor = torch.FloatTensor(gt).to(self.device)
-        #print(gt_tensor)
         actions_tensor = torch.LongTensor(actions).to(self.device)
         predictions = self.policy_nn(torch.tensor(obs, dtype=torch.double).to(self.device))
-        #print(predictions)
         action_prob_tensor = torch.log(predictions)
         action_prob_tensor = action_prob_tensor[range(action_prob_tensor.shape[0]), actions_tensor]
-
-        #print(action_prob_tensor)
         loss = -torch.sum(action_prob_tensor * gt_tensor)
-        #print(loss.item())
 
         self.optimizer.zero_grad()
         loss.backward()

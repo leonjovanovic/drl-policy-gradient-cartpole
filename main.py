@@ -3,18 +3,20 @@ from torch.utils.tensorboard import SummaryWriter
 import gym
 import time
 
-env = gym.make("CartPole-v1")
-
+#-----------------------------PARAMETERS-----------------------------
 HYPERPARAMS = {
     'learning_rate': 0.001,
     'gamma': 0.99
 }
-MAX_EPISODES = 50000
-
-# Create TensorBoard writer that will create graphs
+MAX_EPISODES = 2000
 LOG_DIR = 'content/runs'
-name = "VanillaPG"
-writer = SummaryWriter(log_dir=LOG_DIR + '/' + name + str(time.time()))
+NAME = "VanillaPG"
+ENV_NAME = "CartPole-v1"
+#--------------------------------------------------------------------
+# Create TensorBoard writer that will create graphs
+writer = SummaryWriter(log_dir=LOG_DIR + '/' + NAME + str(time.time()))
+# Create enviroment
+env = gym.make(ENV_NAME)
 # Initialize the policy parameter θ at random.
 agent = Agent(env=env, hyperparameters=HYPERPARAMS, writer=writer)
 

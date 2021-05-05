@@ -26,6 +26,7 @@ class Agent:
 
     def improve_params(self):
         gt = self.estimate_return()
+        
         self.loss = self.agent_control.improve_params(gt, self.episode_obs, self.episode_action)
 
     def estimate_return(self):
@@ -44,8 +45,8 @@ class Agent:
 
     def reset_values(self, ep_num):
         self.total_reward.append(sum(self.episode_reward))
-        print("Episode "+str(ep_num)+" total reward: " + str(sum(self.episode_reward)) + " Loss: " + str(self.loss) + " Average reward: " + str(np.mean(self.total_reward[-40:])))
-        self.summary_writer.add_scalar('mean_reward', np.mean(self.total_reward[-40:]), ep_num)
+        print("Episode "+str(ep_num)+" total reward: " + str(sum(self.episode_reward)) + " Loss: " + str(self.loss) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
+        self.summary_writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)
         self.episode_obs = []
         self.episode_action = []
         self.episode_action_prob = []
