@@ -7,7 +7,7 @@ import time
 HYPERPARAMS = {
     'learning_rate': 0.001,
     'gamma': 0.99,
-    'baseline': True
+    'baseline': False
 }
 MAX_EPISODES = 2000
 LOG_DIR = 'content/runs'
