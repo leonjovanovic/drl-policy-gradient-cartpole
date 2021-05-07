@@ -46,6 +46,7 @@ class Agent:
         self.total_reward.append(sum(self.episode_reward))
         print("Episode "+str(ep_num)+" total reward: " + str(sum(self.episode_reward)) + " Loss: " + str(self.loss) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
         self.summary_writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)
+        self.summary_writer.add_scalar('ep_reward', sum(self.episode_reward), ep_num)
         self.episode_obs = []
         self.episode_action = []
         self.episode_action_prob = []
