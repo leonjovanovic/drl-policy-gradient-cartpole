@@ -1,5 +1,5 @@
 import gym
-
+from agent import Agent
 # -----------------------PARAMETERS---------------------------------
 HYPERPARAMETERS = {
     'learning_rate': 0.001,
@@ -9,7 +9,7 @@ ENV_NAME = 'CartPole-v1'
 #--------------------------------------------------------------------
 env = gym.make(ENV_NAME)
 obs = env.reset()
-agent = Agent(env, hyperparameters=HYPERPARAMETERS)
+agent = Agent(env=env, hyperparameters=HYPERPARAMETERS)
 ep_num = 0
 for _ in range(1100):
     env.render()
