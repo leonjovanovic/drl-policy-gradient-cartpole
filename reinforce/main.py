@@ -24,7 +24,7 @@ agent = Agent(env=env, hyperparameters=HYPERPARAMS, writer=writer)
 obs = env.reset()
 ep_num = 0
 while ep_num < MAX_EPISODES:
-    env.render()
+    #env.render()
     # Give current state to NN and get action from it
     action = agent.select_action(obs)
     # Take that action and retreive next state, reward and is it terminal state

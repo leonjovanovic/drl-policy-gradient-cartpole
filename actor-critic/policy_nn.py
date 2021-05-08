@@ -8,8 +8,9 @@ class PolicyNN(nn.Module):
             nn.Linear(input_shape, 64),
             nn.ReLU(),
             nn.Linear(64, output_shape),
-            nn.Softmax(dim=1)
+            nn.Softmax(dim=-1)
         )
+        self.policy_nn.double()
 
     def forward(self, x):
         return self.policy_nn(x)
