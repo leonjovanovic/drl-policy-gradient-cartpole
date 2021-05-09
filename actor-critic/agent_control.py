@@ -47,7 +47,6 @@ class AgentControl:
         v_new = self.critic_nn(torch.tensor(new_obs, dtype=torch.float64).to(self.device))
         v_curr = self.critic_nn(torch.tensor(obs, dtype=torch.float64).to(self.device))
         mse = nn.MSELoss()
-        #return v_curr
         return mse(reward + self.gamma * v_new, v_curr)
 
     def update_actor_nn(self, advantage):
