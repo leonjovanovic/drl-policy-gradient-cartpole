@@ -7,7 +7,7 @@ import time
 HYPERPARAMS = {
     'learning_rate': 0.001,
     'gamma': 0.99,
-    'baseline': True
+    'baseline': False
 }
 MAX_EPISODES = 1100
 LOG_DIR = 'content/runs'
@@ -28,7 +28,9 @@ while ep_num < MAX_EPISODES:
     # Give current state to NN and get action from it
     action = agent.select_action(obs)
     # Take that action and retreive next state, reward and is it terminal state
-    new_obs, reward, done, info = env.step(action)
+    new_obs, reward, done, _ = env.step(action)
+    if done:
+        reward = -20
     # Until we reach end of episode, store transitions
     agent.add_to_buffer(obs, action, new_obs, reward)
     obs = new_obs

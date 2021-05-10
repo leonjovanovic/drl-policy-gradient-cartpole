@@ -24,15 +24,12 @@ class AgentControl:
 
     def choose_action(self, obs):
         action_prob = self.policy_nn(torch.tensor(obs, dtype=torch.float64).to(self.device))
-        #print(action_prob)
         action = np.random.choice(np.array([0, 1]), p=action_prob.cpu().data.numpy())
-        #print(action)
-        self.current_action_prob = action_prob.data[action]
-        #print(action_prob.data[action])
+        self.current_action_prob = action_prob[action]
         return action
 
     def update_critic_nn(self, reward, obs, new_obs):
-        v_new = self.critic_nn(torch.tensor(new_obs, dtype=torch.float64).to(self.device))
+        v_new = self.critic_nn(torch.tensor(new_obs, dtype=torch.float64).to(self.device)).detach()
         v_curr = self.critic_nn(torch.tensor(obs, dtype=torch.float64).to(self.device))
         mse = nn.MSELoss()
         loss = mse(reward + self.gamma * v_new, v_curr)
@@ -46,16 +43,16 @@ class AgentControl:
     def evaluate_advantage(self, reward, obs, new_obs):
         v_new = self.critic_nn(torch.tensor(new_obs, dtype=torch.float64).to(self.device))
         v_curr = self.critic_nn(torch.tensor(obs, dtype=torch.float64).to(self.device))
-        mse = nn.MSELoss()
-        return mse(reward + self.gamma * v_new, v_curr)
+        return reward + self.gamma * v_new - v_curr
 
-    def update_actor_nn(self, advantage):
-        loss = -torch.log(self.current_action_prob) * advantage
+    def update_actor_nn(self, advantage, obs):
+        loss = -torch.log(self.current_action_prob) * advantage.detach()
 
         self.policy_optim.zero_grad()
         loss.backward()
         self.policy_optim.step()
         return loss.item()
+
 
 
 
