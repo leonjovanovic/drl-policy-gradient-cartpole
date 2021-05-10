@@ -7,9 +7,9 @@ import time
 HYPERPARAMS = {
     'learning_rate': 0.001,
     'gamma': 0.99,
-    'baseline': False
+    'baseline': True
 }
-MAX_EPISODES = 1100
+MAX_EPISODES = 5000
 LOG_DIR = 'content/runs'
 NAME = "VanillaPG"
 ENV_NAME = "CartPole-v1"

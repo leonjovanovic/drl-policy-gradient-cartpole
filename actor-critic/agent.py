@@ -2,10 +2,11 @@ from agent_control import AgentControl
 import numpy as np
 
 class Agent:
-    def __init__(self, env, hyperparameters):
+    def __init__(self, env, hyperparameters, writer):
         self.agent_control = AgentControl(env, hyperparameters)
+        self.writer = writer
 
-        self.ep_reward = 0
+        self.ep_reward = 21
         self.total_reward = []
         self.actor_loss = 0
         self.total_actor_loss = []
@@ -32,7 +33,9 @@ class Agent:
         self.avg_actor_loss.append(np.mean(self.total_actor_loss))
         print("Episode " + str(ep_num) + " total reward: " + str(self.ep_reward) + " Avg actor loss: " + str(
             np.mean(self.avg_actor_loss[-100:])) + " Avg critic loss: " + str(np.mean(self.avg_critic_loss[-100:])) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
-        self.ep_reward = 0
+        self.writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)
+        self.writer.add_scalar('ep_reward', self.ep_reward, ep_num)
+        self.ep_reward = 21
         self.total_actor_loss = []
         self.total_critic_loss = []
 

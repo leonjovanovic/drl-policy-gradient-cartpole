@@ -5,9 +5,9 @@ class PolicyNN(nn.Module):
     def __init__(self, input_shape, output_shape):
         super(PolicyNN, self).__init__()
         self.policy_nn = nn.Sequential(
-            nn.Linear(input_shape, 64),
+            nn.Linear(input_shape, 20),
             nn.ReLU(),
-            nn.Linear(64, output_shape),
+            nn.Linear(20, output_shape),
             nn.Softmax(dim=-1)
         )
         self.policy_nn.double()

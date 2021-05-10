@@ -1,16 +1,21 @@
 import gym
 from agent import Agent
+from torch.utils.tensorboard import SummaryWriter
+import time
 # -----------------------PARAMETERS---------------------------------
 HYPERPARAMETERS = {
-    'learning_rate_actor': 0.001,
-    'learning_rate_critic': 0.01,
+    'learning_rate_actor': 0.0001,
+    'learning_rate_critic': 0.0005,
     'gamma': 0.9,
 }
 ENV_NAME = 'CartPole-v1'
+WRITER = True
+LOG_DIR = 'content/runs/ActorCritic'
 #--------------------------------------------------------------------
 env = gym.make(ENV_NAME)
 obs = env.reset()
-agent = Agent(env=env, hyperparameters=HYPERPARAMETERS)
+writer = SummaryWriter(log_dir=LOG_DIR + str(time.time()))
+agent = Agent(env=env, hyperparameters=HYPERPARAMETERS, writer=writer)
 ep_num = 0
 while ep_num < 5000:
     #env.render()
@@ -25,3 +30,5 @@ while ep_num < 5000:
         agent.print_state(ep_num)
         ep_num += 1
 env.close()
+writer.close()
+# !tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\actor-critic\content\runs" --host=127.0.0.1

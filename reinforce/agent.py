@@ -45,6 +45,7 @@ class Agent:
         return gt
 
     def reset_values(self, ep_num):
+        self.episode_reward.append(21)
         self.total_reward.append(sum(self.episode_reward))
         print("Episode "+str(ep_num)+" total reward: " + str(sum(self.episode_reward)) + " Loss: " + str(np.mean(self.total_loss[-100:])) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
         self.summary_writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)

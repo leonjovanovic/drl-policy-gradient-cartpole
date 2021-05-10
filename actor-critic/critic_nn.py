@@ -5,9 +5,9 @@ class CriticNN(nn.Module):
     def __init__(self, input_shape):
         super(CriticNN, self).__init__()
         self.critic_nn = nn.Sequential(
-            nn.Linear(input_shape, 64),
+            nn.Linear(input_shape, 20),
             nn.ReLU(),
-            nn.Linear(64, 1)
+            nn.Linear(20, 1)
         )
         self.critic_nn.double()
 
