@@ -7,6 +7,8 @@ class PolicyNN(nn.Module):
         self.policy_nn = nn.Sequential(
             nn.Linear(input_shape, 20),
             nn.ReLU(),
+            nn.Linear(20, 20),
+            nn.ReLU(),
             nn.Linear(20, output_shape),
             nn.Softmax(dim=-1)
         )

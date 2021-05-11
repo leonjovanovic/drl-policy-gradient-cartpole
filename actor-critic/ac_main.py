@@ -4,8 +4,8 @@ from torch.utils.tensorboard import SummaryWriter
 import time
 # -----------------------PARAMETERS---------------------------------
 HYPERPARAMETERS = {
-    'learning_rate_actor': 0.0001,
-    'learning_rate_critic': 0.0005,
+    'learning_rate_actor': 0.00001,
+    'learning_rate_critic': 0.00005,
     'gamma': 0.9,
 }
 ENV_NAME = 'CartPole-v1'
@@ -17,7 +17,7 @@ obs = env.reset()
 writer = SummaryWriter(log_dir=LOG_DIR + str(time.time()))
 agent = Agent(env=env, hyperparameters=HYPERPARAMETERS, writer=writer)
 ep_num = 0
-while ep_num < 5000:
+while ep_num < 10000:
     #env.render()
     action = agent.choose_action(obs)
     new_obs, reward, done, _ = env.step(action)
