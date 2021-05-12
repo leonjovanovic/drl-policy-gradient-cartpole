@@ -55,4 +55,5 @@ class Agent:
         self.episode_action_prob = []
         self.episode_new_obs = []
         self.episode_reward = []
+        return np.mean(self.total_reward[-100:])
 

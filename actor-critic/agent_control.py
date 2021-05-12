@@ -35,11 +35,7 @@ class AgentControl:
         action = np.random.choice(np.array([0, 1]), p=action_prob.cpu().data.numpy())
         self.current_action_prob = action_prob[action]
         if self.entropy_flag:
-            self.entropy = -torch.sum(action_prob * torch.log(action_prob))
-        print(action_prob)
-        print(torch.log(action_prob))
-        print(action_prob * torch.log(action_prob))
-        print(self.entropy)
+            self.entropy = -torch.sum(action_prob * torch.log(action_prob)).detach()
         return action
 
     def update_critic_nn(self, reward, obs, new_obs):

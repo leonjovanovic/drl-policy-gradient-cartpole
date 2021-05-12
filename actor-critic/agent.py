@@ -38,6 +38,6 @@ class Agent:
         self.ep_reward = 21
         self.total_actor_loss = []
         self.total_critic_loss = []
-
+        return np.mean(self.total_reward[-100:])
 
 

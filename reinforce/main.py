@@ -23,6 +23,7 @@ agent = Agent(env=env, hyperparameters=HYPERPARAMS, writer=writer)
 
 obs = env.reset()
 ep_num = 0
+start = time.time()
 while ep_num < MAX_EPISODES:
     #env.render()
     # Give current state to NN and get action from it
@@ -37,9 +38,13 @@ while ep_num < MAX_EPISODES:
     if done:
         # For each step in episode we need to estimate return Gt and update policy parameters
         agent.improve_params()
-        agent.reset_values(ep_num)
+        avg_reward = agent.reset_values(ep_num)
         obs = env.reset()
         ep_num += 1
+        if avg_reward >= 495:
+            stop = time.time()
+            print(stop-start)
+            break
 
 env.close()
 writer.close()

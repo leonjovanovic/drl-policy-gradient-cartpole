@@ -1,7 +1,5 @@
 import torch
 import torch.nn as nn
-torch.manual_seed(12)
-torch.cuda.manual_seed(12)
 
 class PolicyNN(nn.Module):
     def __init__(self, input_shape, output_shape, seed):
