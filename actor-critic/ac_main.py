@@ -7,6 +7,8 @@ HYPERPARAMETERS = {
     'learning_rate_actor': 0.00001,
     'learning_rate_critic': 0.0001,
     'gamma': 0.99,
+    'random_seed': -1,
+    'entropy': True
 }
 ENV_NAME = 'CartPole-v1'
 WRITER = True
@@ -21,6 +23,7 @@ ep_num = 0
 while ep_num < MAX_EPISODES:
     #env.render()
     action = agent.choose_action(obs)
+    break
     new_obs, reward, done, _ = env.step(action)
     if done:
         reward = -20
