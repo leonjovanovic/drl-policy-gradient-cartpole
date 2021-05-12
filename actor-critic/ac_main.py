@@ -5,19 +5,20 @@ import time
 # -----------------------PARAMETERS---------------------------------
 HYPERPARAMETERS = {
     'learning_rate_actor': 0.00001,
-    'learning_rate_critic': 0.00005,
-    'gamma': 0.9,
+    'learning_rate_critic': 0.0001,
+    'gamma': 0.99,
 }
 ENV_NAME = 'CartPole-v1'
 WRITER = True
 LOG_DIR = 'content/runs/ActorCritic'
+MAX_EPISODES = 4000
 #--------------------------------------------------------------------
 env = gym.make(ENV_NAME)
 obs = env.reset()
 writer = SummaryWriter(log_dir=LOG_DIR + str(time.time()))
 agent = Agent(env=env, hyperparameters=HYPERPARAMETERS, writer=writer)
 ep_num = 0
-while ep_num < 10000:
+while ep_num < MAX_EPISODES:
     #env.render()
     action = agent.choose_action(obs)
     new_obs, reward, done, _ = env.step(action)
@@ -32,3 +33,7 @@ while ep_num < 10000:
 env.close()
 writer.close()
 # !tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\actor-critic\content\runs" --host=127.0.0.1
+
+# DODATI ENTROPIJU I
+#torch.manual_seed(42)
+#torch.cuda.manual_seed(42)

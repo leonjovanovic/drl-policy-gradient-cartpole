@@ -5,6 +5,9 @@ import torch.optim as optim
 import torch.nn as nn
 import numpy as np
 
+torch.manual_seed(48)
+torch.cuda.manual_seed(48)
+
 class AgentControl:
     def __init__(self, env, hyperparameters):
         self.learning_rate_actor = hyperparameters['learning_rate_actor']
