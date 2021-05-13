@@ -8,11 +8,11 @@ class PolicyNN(nn.Module):
             torch.manual_seed(seed)
             torch.cuda.manual_seed(seed)
         self.policy_nn = nn.Sequential(
-            nn.Linear(input_shape, 64),
+            nn.Linear(input_shape, 16),
             nn.ReLU(),
-            nn.Linear(64, 32),
+            nn.Linear(16, 16),
             nn.ReLU(),
-            nn.Linear(32, output_shape),
+            nn.Linear(16, output_shape),
             nn.Softmax(dim=-1)
         )
         self.policy_nn.double()

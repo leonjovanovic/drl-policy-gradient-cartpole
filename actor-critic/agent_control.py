@@ -13,6 +13,7 @@ class AgentControl:
         self.gamma = hyperparameters['gamma']
         self.seed = hyperparameters['random_seed']
         self.entropy_flag = hyperparameters['entropy']
+        self.entropy_beta = hyperparameters['entropy_beta']
         self.entropy = 0
 
         if self.seed != -1:
@@ -35,7 +36,7 @@ class AgentControl:
         action = np.random.choice(np.array([0, 1]), p=action_prob.cpu().data.numpy())
         self.current_action_prob = action_prob[action]
         if self.entropy_flag:
-            self.entropy = -torch.sum(action_prob * torch.log(action_prob)).detach()
+            self.entropy = -self.entropy_beta * torch.sum(action_prob * torch.log(action_prob)).detach()
         return action
 
     def update_critic_nn(self, reward, obs, new_obs):

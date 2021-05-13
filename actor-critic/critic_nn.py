@@ -8,11 +8,11 @@ class CriticNN(nn.Module):
             torch.manual_seed(seed)
             torch.cuda.manual_seed(seed)
         self.critic_nn = nn.Sequential(
-            nn.Linear(input_shape, 128),
+            nn.Linear(input_shape, 32),
             nn.ReLU(),
-            nn.Linear(128, 64),
+            nn.Linear(32, 32),
             nn.ReLU(),
-            nn.Linear(64, 1)
+            nn.Linear(32, 1)
         )
         self.critic_nn.double()
 
