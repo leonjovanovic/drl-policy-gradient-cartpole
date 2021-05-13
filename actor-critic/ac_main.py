@@ -6,11 +6,11 @@ import time
 # -----------------------PARAMETERS---------------------------------
 HYPERPARAMETERS = {
     'learning_rate_actor': 0.0005,
-    'learning_rate_critic': 0.0005,
+    'learning_rate_critic': 0.0007,
     'gamma': 0.99,
     'random_seed': -1,
     'entropy': True,
-    'entropy_beta': 0.01,
+    'entropy_beta': 0.1,
     'n-step': 3
 }
 ENV_NAME = 'CartPole-v1'
