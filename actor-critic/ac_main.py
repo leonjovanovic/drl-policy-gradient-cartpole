@@ -7,9 +7,10 @@ HYPERPARAMETERS = {
     'learning_rate_actor': 0.0001,
     'learning_rate_critic': 0.0002,
     'gamma': 0.99,
-    'random_seed': -1,
+    'random_seed': 12,
     'entropy': True,
-    'entropy_beta': 0.1
+    'entropy_beta': 0.1,
+    'n-step': 3
 }
 ENV_NAME = 'CartPole-v1'
 WRITER = True

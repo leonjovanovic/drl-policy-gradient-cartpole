@@ -4,3 +4,6 @@ https://github.com/andri27-ts/Reinforcement-Learning/blob/master/Week4/PolicyGra
 https://www.youtube.com/watch?v=Tol_jw5hWnI&list=PLkFD6_40KJIxJMR-j5A1mkxK26gh_qg37&index=5
 
 Entropy: https://towardsdatascience.com/entropy-regularization-in-reinforcement-learning-a6fa6d7598df
+
+A2C github: https://github.com/MG2033/A2C
+https://kargarisaac.medium.com/rl-series-a2c-and-a3c-in-pytorch-6e9edf5c8788

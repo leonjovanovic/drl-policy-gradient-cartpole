@@ -25,9 +25,9 @@ class AgentControl:
 
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.policy_nn = PolicyNN(self.input_shape, self.output_shape, self.seed).to(self.device)
-        self.policy_optim = optim.Adam(params=self.policy_nn.parameters(), lr=self.learning_rate_actor)
+        self.policy_optim = optim.RMSprop(params=self.policy_nn.parameters(), lr=self.learning_rate_actor)
         self.critic_nn = CriticNN(self.input_shape, self.seed).to(self.device)
-        self.critic_optim = optim.Adam(params=self.critic_nn.parameters(), lr=self.learning_rate_critic)
+        self.critic_optim = optim.RMSprop(params=self.critic_nn.parameters(), lr=self.learning_rate_critic)
 
         self.current_action_prob = torch.tensor(0)
 
