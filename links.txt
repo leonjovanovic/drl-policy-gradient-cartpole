@@ -7,3 +7,5 @@ Entropy: https://towardsdatascience.com/entropy-regularization-in-reinforcement-
 
 A2C github: https://github.com/MG2033/A2C
 https://kargarisaac.medium.com/rl-series-a2c-and-a3c-in-pytorch-6e9edf5c8788
+https://www.reddit.com/r/reinforcementlearning/comments/fz79hw/r_a3c_vs_a2c_did_i_get_this_right/
+http://rail.eecs.berkeley.edu/deeprlcourse-fa17/f17docs/lecture_5_actor_critic_pdf

@@ -1,15 +1,16 @@
+
 import gym
 from agent import Agent
 from torch.utils.tensorboard import SummaryWriter
 import time
 # -----------------------PARAMETERS---------------------------------
 HYPERPARAMETERS = {
-    'learning_rate_actor': 0.0001,
-    'learning_rate_critic': 0.0002,
+    'learning_rate_actor': 0.0005,
+    'learning_rate_critic': 0.0005,
     'gamma': 0.99,
-    'random_seed': 12,
+    'random_seed': -1,
     'entropy': True,
-    'entropy_beta': 0.1,
+    'entropy_beta': 0.01,
     'n-step': 3
 }
 ENV_NAME = 'CartPole-v1'
@@ -29,7 +30,7 @@ while ep_num < MAX_EPISODES:
     new_obs, reward, done, _ = env.step(action)
     if done:
         reward = -20
-    agent.improve_params(obs, action, new_obs, reward)
+    agent.improve_params(obs, action, new_obs, reward, done)
     obs = new_obs
     if done:
         obs = env.reset()
