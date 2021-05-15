@@ -5,7 +5,7 @@ import time
 
 #-----------------------------PARAMETERS-----------------------------
 HYPERPARAMS = {
-    'learning_rate': 0.001,
+    'learning_rate': 0.005,
     'gamma': 0.99,
     'baseline': True
 }
