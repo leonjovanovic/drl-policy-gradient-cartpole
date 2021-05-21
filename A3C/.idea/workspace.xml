@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/actor_nn.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/critic_nn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent_control.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/process.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +31,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../actor-critic (AC1)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Python.process">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -102,6 +97,7 @@
       <workItem from="1621372033138" duration="123000" />
       <workItem from="1621419318401" duration="1600000" />
       <workItem from="1621453454826" duration="11524000" />
+      <workItem from="1621617090628" duration="240000" />
     </task>
     <servers />
   </component>
