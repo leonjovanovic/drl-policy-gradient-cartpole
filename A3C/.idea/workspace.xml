@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621719138.0372822/events.out.tfevents.1621719138.DESKTOP-3P8CLT4.14928.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621719520.7615862/events.out.tfevents.1621719521.DESKTOP-3P8CLT4.8208.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621719642.4513078/events.out.tfevents.1621719642.DESKTOP-3P8CLT4.2948.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621719911.047301/events.out.tfevents.1621719911.DESKTOP-3P8CLT4.15452.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621720140.6540642/events.out.tfevents.1621720141.DESKTOP-3P8CLT4.9860.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621720280.3773708/events.out.tfevents.1621720280.DESKTOP-3P8CLT4.15096.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621720345.211519/events.out.tfevents.1621720345.DESKTOP-3P8CLT4.13052.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621720898.1624022/events.out.tfevents.1621720898.DESKTOP-3P8CLT4.15412.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621721367.8309815/events.out.tfevents.1621721368.DESKTOP-3P8CLT4.3456.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621721787.02732/events.out.tfevents.1621721787.DESKTOP-3P8CLT4.9492.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621721864.7808774/events.out.tfevents.1621721865.DESKTOP-3P8CLT4.2788.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621722326.4490995/events.out.tfevents.1621722326.DESKTOP-3P8CLT4.14564.0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621715074.155184/events.out.tfevents.1621715074.DESKTOP-3P8CLT4.6400.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621715089.8211148/events.out.tfevents.1621715090.DESKTOP-3P8CLT4.12160.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621715889.4212418/events.out.tfevents.1621715889.DESKTOP-3P8CLT4.14624.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621716276.160377/events.out.tfevents.1621716276.DESKTOP-3P8CLT4.15232.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621716591.3276634/events.out.tfevents.1621716591.DESKTOP-3P8CLT4.13664.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621717081.2756364/events.out.tfevents.1621717081.DESKTOP-3P8CLT4.14856.0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621717946.9698634/events.out.tfevents.1621717947.DESKTOP-3P8CLT4.12248.0" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621717946.9698634/events.out.tfevents.1621717947.DESKTOP-3P8CLT4.12248.0" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +100,7 @@
       <workItem from="1621419318401" duration="1600000" />
       <workItem from="1621453454826" duration="11524000" />
       <workItem from="1621617090628" duration="835000" />
-      <workItem from="1621710081381" duration="12519000" />
+      <workItem from="1621710081381" duration="12592000" />
     </task>
     <servers />
   </component>

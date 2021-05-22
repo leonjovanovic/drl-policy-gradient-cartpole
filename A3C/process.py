@@ -39,3 +39,6 @@ if writer is not None:
     writer.close()
 env.close()
 # !tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\A3C\content\runs" --host=127.0.0.1
+
+# Sve ovo staviti u funkciju? ili u klasu?
+# Na pocetku koraka prvo prebaciti shared NNs u lokalne NNs, zatim izvrsiti sve i updejtovati shared NN
