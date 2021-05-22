@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 11/events.out.tfevents.1621018454.DESKTOP-3P8CLT4.12300.9" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621715074.155184/events.out.tfevents.1621715074.DESKTOP-3P8CLT4.6400.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621715089.8211148/events.out.tfevents.1621715090.DESKTOP-3P8CLT4.12160.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621715889.4212418/events.out.tfevents.1621715889.DESKTOP-3P8CLT4.14624.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621716276.160377/events.out.tfevents.1621716276.DESKTOP-3P8CLT4.15232.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621716591.3276634/events.out.tfevents.1621716591.DESKTOP-3P8CLT4.13664.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621717081.2756364/events.out.tfevents.1621717081.DESKTOP-3P8CLT4.14856.0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent_control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/ac_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/ac_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +39,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../actor-critic (AC1)" />
   </component>
   <component name="RunManager" selected="Python.process">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -97,7 +109,8 @@
       <workItem from="1621372033138" duration="123000" />
       <workItem from="1621419318401" duration="1600000" />
       <workItem from="1621453454826" duration="11524000" />
-      <workItem from="1621617090628" duration="240000" />
+      <workItem from="1621617090628" duration="835000" />
+      <workItem from="1621710081381" duration="7564000" />
     </task>
     <servers />
   </component>
@@ -116,6 +129,9 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -128,6 +144,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/A3C$process.coverage" NAME="process Coverage Results" MODIFIED="1621465256347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A3C$process.coverage" NAME="process Coverage Results" MODIFIED="1621717079567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

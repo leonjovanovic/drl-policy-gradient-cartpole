@@ -82,6 +82,7 @@ class AgentControl:
         loss.backward()
         # Update current parameters based on calculated derivatives wtih Adam optimizer
         self.critic_optim.step()
+        return loss.item()
 
     # Estimate advantage as difference between estimated return and actual value
     def estimate_advantage(self, memory):

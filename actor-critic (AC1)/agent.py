@@ -46,8 +46,8 @@ class Agent:
         self.total_reward.append(self.ep_reward)
         self.avg_critic_loss.append(np.mean(self.total_critic_loss))
         self.avg_actor_loss.append(np.mean(self.total_actor_loss))
-        #print("Episode " + str(ep_num) + " total reward: " + str(self.ep_reward) + " Avg actor loss: " + str(
-        #    np.mean(self.avg_actor_loss[-100:])) + " Avg critic loss: " + str(np.mean(self.avg_critic_loss[-100:])) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
+        print("Episode " + str(ep_num) + " total reward: " + str(self.ep_reward) + " Avg actor loss: " + str(
+            np.mean(self.avg_actor_loss[-100:])) + " Avg critic loss: " + str(np.mean(self.avg_critic_loss[-100:])) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
         if self.writer is not None:
             self.writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)
             self.writer.add_scalar('ep_reward', self.ep_reward, ep_num)
