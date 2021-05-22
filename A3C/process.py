@@ -4,11 +4,11 @@ from torch.utils.tensorboard import SummaryWriter
 import time
 #----------------------PARAMETERS------------------------------
 ENVIROMENT_NAME = "CartPole-v1"
-MAX_WORKER_GAMES = 5000
+MAX_WORKER_GAMES = 1000
 HYPERPARAMETERS = {
-    'lr_actor': 0.0001,
-    'lr_critic': 0.0005,
-    'gamma': 0.9,
+    'lr_actor': 0.0007,
+    'lr_critic': 0.0009,
+    'gamma': 0.99,
     'n-step': 2,
     'entropy_flag': True,
     'entropy_coef': 0.001,
