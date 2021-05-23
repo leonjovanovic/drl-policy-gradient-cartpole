@@ -1,0 +1,13 @@
+REINFORCE:
+*Done*
+AC1:
+*Done*
+A3C:
+*Algorithm complete*
++tune params(n-step, lr, seed, num_processes)
++write comments
+A2C:
+-Not started-
+SAC:
+-Not started-
+ACTR?
