@@ -1,7 +1,7 @@
 import torch.nn as nn
 
 class CriticNN(nn.Module):
-    def __init__(self, input_shape, seed):
+    def __init__(self, input_shape):
         super(CriticNN, self).__init__()
         self.model = nn.Sequential(
             nn.Linear(input_shape, 32),

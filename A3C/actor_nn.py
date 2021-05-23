@@ -1,7 +1,7 @@
 import torch.nn as nn
 
 class ActorNN(nn.Module):
-    def __init__(self, input_shape, output_shape, seed):
+    def __init__(self, input_shape, output_shape):
         super(ActorNN, self).__init__()
         self.model = nn.Sequential(
             nn.Linear(input_shape, 16),

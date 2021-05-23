@@ -5,20 +5,30 @@ from critic_nn import CriticNN
 import numpy as np
 
 class AgentControl:
-    def __init__(self, env, hyperparameters):
+    def __init__(self, env, hyperparameters, shared_model_actor, shared_model_critic):
         self.gamma = hyperparameters['gamma']
         self.entropy_flag = hyperparameters["entropy_flag"]
         self.entropy_coef = hyperparameters["entropy_coef"]
         self.entropy = []
 
-        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.actor_nn = ActorNN(env.observation_space.shape[0], env.action_space.n, hyperparameters["seed"]).to(self.device)
-        self.actor_optim = torch.optim.Adam(params=self.actor_nn.parameters(), lr=hyperparameters['lr_actor'])
-        self.critic_nn = CriticNN(env.observation_space.shape[0], hyperparameters["seed"]).to(self.device)
-        self.critic_optim = torch.optim.Adam(params=self.critic_nn.parameters(), lr=hyperparameters['lr_critic'])
+        self.device = device = 'cpu'# 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.shared_actor_nn = shared_model_actor
+        self.actor_nn = ActorNN(env.observation_space.shape[0], env.action_space.n).to(self.device)
+        self.actor_optim = torch.optim.Adam(params=shared_model_actor.parameters(), lr=hyperparameters['lr_actor'])
+        self.shared_critic_nn = shared_model_critic
+        self.critic_nn = CriticNN(env.observation_space.shape[0]).to(self.device)
+        self.critic_optim = torch.optim.Adam(params=shared_model_critic.parameters(), lr=hyperparameters['lr_critic'])
         self.loss = nn.MSELoss()
 
+        self.update_nns = True
+
     def choose_action(self, obs):
+        # We need to synchronize two local models with two shared models
+        if self.update_nns:
+            self.update_nns = False
+            self.actor_nn.load_state_dict(self.shared_actor_nn.state_dict())
+            self.critic_nn.load_state_dict(self.shared_critic_nn.state_dict())
+        #CHECK IF SHARED MODELS ARE CHANGING------------------------------------------------------------------------------------------------------------------
         # We send current state as NN input and get two probabilities for each action (in sum of 1)
         action_prob = self.actor_nn(torch.tensor(obs, dtype=torch.double).to(self.device))
         # We dont take higher probability but take random value of 0 or 1 based on probabilities from NN
@@ -80,6 +90,12 @@ class AgentControl:
         self.critic_optim.zero_grad()
         # Calculate loss derivative
         loss.backward()
+
+        #------------------------------------------------------------------------------------------------------------------------------------------------
+        #torch.nn.utils.clip_grad_norm_(self.critic_nn.parameters(), 50)
+        self.ensure_shared_grads(self.critic_nn, self.shared_critic_nn)
+        #-------------------------------------------------------------------------------------------------------------------------------------------------
+
         # Update current parameters based on calculated derivatives wtih Adam optimizer
         self.critic_optim.step()
         return loss.item()
@@ -110,9 +126,23 @@ class AgentControl:
         self.actor_optim.zero_grad()
         # Calculate loss derivative
         loss.backward()
+
+        #------------------------------------------------------------------------------------------------------------------------------------------------
+        #torch.nn.utils.clip_grad_norm_(self.actor_nn.parameters(), 50)
+        self.ensure_shared_grads(self.actor_nn, self.shared_actor_nn)
+        #-------------------------------------------------------------------------------------------------------------------------------------------------
+
         # Update current parameters based on calculated derivatives wtih Adam optimizer
         self.actor_optim.step()
         # We need to reset entropy since we have done one n-step iteration.
         self.entropy = []
+        self.update_nns = True
         return loss.item()
 
+    # ZA SVAKI SLUCAJ
+    def ensure_shared_grads(self, model, shared_model):
+        for param, shared_param in zip(model.parameters(),
+                                       shared_model.parameters()):
+            if shared_param.grad is not None:
+                return
+            shared_param._grad = param.grad
