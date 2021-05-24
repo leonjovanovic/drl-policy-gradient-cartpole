@@ -2,39 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=3-e=001-seed=121621787325.164026/events.out.tfevents.1621787328.DESKTOP-3P8CLT4.6832.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790686.8567257/events.out.tfevents.1621790687.DESKTOP-3P8CLT4.11356.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790687.1097224/events.out.tfevents.1621790687.DESKTOP-3P8CLT4.11440.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790687.354727/events.out.tfevents.1621790687.DESKTOP-3P8CLT4.9136.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790687.6617239/events.out.tfevents.1621790688.DESKTOP-3P8CLT4.8928.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790687.974724/events.out.tfevents.1621790688.DESKTOP-3P8CLT4.9700.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790688.371724/events.out.tfevents.1621790689.DESKTOP-3P8CLT4.6864.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790688.7477245/events.out.tfevents.1621790689.DESKTOP-3P8CLT4.13352.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790689.3677232/events.out.tfevents.1621790690.DESKTOP-3P8CLT4.4616.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790690.0072403/events.out.tfevents.1621790691.DESKTOP-3P8CLT4.13300.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790690.910244/events.out.tfevents.1621790692.DESKTOP-3P8CLT4.1824.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790691.419283/events.out.tfevents.1621790692.DESKTOP-3P8CLT4.11624.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1621790691.869312/events.out.tfevents.1621790692.DESKTOP-3P8CLT4.4180.0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actor_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/actor_nn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/agent_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent_control.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621719138.0372822/events.out.tfevents.1621719138.DESKTOP-3P8CLT4.14928.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621719520.7615862/events.out.tfevents.1621719521.DESKTOP-3P8CLT4.8208.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621719642.4513078/events.out.tfevents.1621719642.DESKTOP-3P8CLT4.2948.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621719911.047301/events.out.tfevents.1621719911.DESKTOP-3P8CLT4.15452.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621720140.6540642/events.out.tfevents.1621720141.DESKTOP-3P8CLT4.9860.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621720280.3773708/events.out.tfevents.1621720280.DESKTOP-3P8CLT4.15096.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621720345.211519/events.out.tfevents.1621720345.DESKTOP-3P8CLT4.13052.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621720898.1624022/events.out.tfevents.1621720898.DESKTOP-3P8CLT4.15412.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621721367.8309815/events.out.tfevents.1621721368.DESKTOP-3P8CLT4.3456.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621721787.02732/events.out.tfevents.1621721787.DESKTOP-3P8CLT4.9492.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621721864.7808774/events.out.tfevents.1621721865.DESKTOP-3P8CLT4.2788.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/runs/AC3-16163232-7,10-n=2-e=001-seed=121621722326.4490995/events.out.tfevents.1621722326.DESKTOP-3P8CLT4.14564.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/critic_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/critic_nn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/process.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +112,8 @@
       <workItem from="1621617090628" duration="835000" />
       <workItem from="1621710081381" duration="12592000" />
       <workItem from="1621774297467" duration="12275000" />
+      <workItem from="1621792500641" duration="892000" />
+      <workItem from="1621853813929" duration="1627000" />
     </task>
     <servers />
   </component>

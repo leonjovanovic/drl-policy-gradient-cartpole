@@ -28,7 +28,6 @@ class AgentControl:
             self.update_nns = False
             self.actor_nn.load_state_dict(self.shared_actor_nn.state_dict())
             self.critic_nn.load_state_dict(self.shared_critic_nn.state_dict())
-        #CHECK IF SHARED MODELS ARE CHANGING------------------------------------------------------------------------------------------------------------------
         # We send current state as NN input and get two probabilities for each action (in sum of 1)
         action_prob = self.actor_nn(torch.tensor(obs, dtype=torch.double).to(self.device))
         # We dont take higher probability but take random value of 0 or 1 based on probabilities from NN
@@ -139,10 +138,8 @@ class AgentControl:
         self.update_nns = True
         return loss.item()
 
-    # ZA SVAKI SLUCAJ
     def ensure_shared_grads(self, model, shared_model):
-        for param, shared_param in zip(model.parameters(),
-                                       shared_model.parameters()):
+        for param, shared_param in zip(model.parameters(), shared_model.parameters()):
             if shared_param.grad is not None:
                 return
             shared_param._grad = param.grad
