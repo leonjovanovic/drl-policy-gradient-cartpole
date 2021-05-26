@@ -4,7 +4,7 @@ import torch
 from agent import Agent
 from torch.utils.tensorboard import SummaryWriter
 import time
-def train_process(parameters, rank, shared_model_actor, shared_model_critic, counter, lock):
+def test_process(parameters, rank, shared_model_actor, shared_model_critic, counter, lock):
     # Set random seed so each process will get different one
     torch.manual_seed(parameters['seed'] + rank)
     # Create enviroment and agent
