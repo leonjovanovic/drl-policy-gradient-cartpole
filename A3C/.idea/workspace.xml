@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test_process.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622140970.5003424/events.out.tfevents.1622140970.DESKTOP-3P8CLT4.15744.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622141138.5440981/events.out.tfevents.1622141138.DESKTOP-3P8CLT4.5632.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622143151.8259227/events.out.tfevents.1622143152.DESKTOP-3P8CLT4.4008.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=3-e=001-seed=12++1622143217.8941486/events.out.tfevents.1622143218.DESKTOP-3P8CLT4.4844.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=3-e=001-seed=12++1622143294.6842654/events.out.tfevents.1622143295.DESKTOP-3P8CLT4.15684.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1622139427.4910564/events.out.tfevents.1622139427.DESKTOP-3P8CLT4.15652.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=5-e=001-seed=12++1622138327.3024502/events.out.tfevents.1622138327.DESKTOP-3P8CLT4.15688.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=6-e=001-seed=12++1622138487.0930014/events.out.tfevents.1622138487.DESKTOP-3P8CLT4.3504.0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent_control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_process.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +79,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="train_process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="A3C" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -81,7 +92,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/process.py" />
+      <option name="SCRIPT_NAME" value="D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\A3C\train_process.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -93,7 +104,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.process" />
+        <item itemvalue="Python.train_process" />
       </list>
     </recent_temporary>
   </component>
@@ -115,7 +126,8 @@
       <workItem from="1621774297467" duration="12275000" />
       <workItem from="1621792500641" duration="892000" />
       <workItem from="1621853813929" duration="1627000" />
-      <workItem from="1622060545122" duration="2131000" />
+      <workItem from="1622060545122" duration="2376000" />
+      <workItem from="1622118920155" duration="13846000" />
     </task>
     <servers />
   </component>
@@ -139,6 +151,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A3C$process.coverage" NAME="process Coverage Results" MODIFIED="1621722324783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/A3C$main.coverage" NAME="main Coverage Results" MODIFIED="1621790685474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A3C$main.coverage" NAME="main Coverage Results" MODIFIED="1622143293274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

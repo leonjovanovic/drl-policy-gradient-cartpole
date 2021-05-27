@@ -3,7 +3,8 @@ import torch.multiprocessing as mp
 import gym
 from actor_nn import ActorNN
 from critic_nn import CriticNN
-from process import train_process
+from test_process import test_process
+from train_process import train_process
 
 if __name__ == '__main__':
     #----------------------PARAMETERS------------------------------
@@ -12,15 +13,17 @@ if __name__ == '__main__':
         'lr_actor': 0.0002,
         'lr_critic': 0.0003,
         'gamma': 0.99,
-        'n-step': 5,
+        'n-step': 3,
         'entropy_flag': True,
         'entropy_coef': 0.001,
         'seed': 12,
-        'num_processes': 12,
+        'num_processes': 11,
         'env_name': "CartPole-v1",
-        'max_worker_games': 1000,
-        'writer': True,
-        'writer_log_dir': 'content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++'
+        'max_train_games': 1000,
+        'max_test_games': 10,
+        'writer_test': True,
+        'writer_train': False,
+        'writer_log_dir': 'content/runs/AC3-16163232-2,3-n=3-e=001-seed=12++'
     }
     #--------------------------------------------------------------
     # Set manuel seed so other processes dont get same
@@ -38,18 +41,20 @@ if __name__ == '__main__':
 
     # List of all workers/processes
     processes = []
-    # We need to create Value and Lock for classic Semaphore
+    # We need to create shared counter and lock to safely change value of counter
     counter = mp.Value('i', 0)
+    end_flag = mp.Value('i', 0)
     lock = mp.Lock()
 
-    #p = mp.Process(target=test, args=(args.num_processes, args, shared_model, counter))
-    #p.start()
-    #processes.append(p)
+    p = mp.Process(target=test_process, args=(HYPERPARAMETERS, shared_model_actor, counter, end_flag))
+    p.start()
+    processes.append(p)
 
     # We will start all processes passing rank which will determine seed for NN params
     for rank in range(0, HYPERPARAMETERS['num_processes']):
-        p = mp.Process(target=train_process, args=(HYPERPARAMETERS, rank, shared_model_actor, shared_model_critic, counter, lock))
+        p = mp.Process(target=train_process, args=(HYPERPARAMETERS, rank, shared_model_actor, shared_model_critic, counter, lock, end_flag))
         p.start()
         processes.append(p)
     for p in processes:
         p.join()
+# !tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\A3C\content\runs" --host=127.0.0.1

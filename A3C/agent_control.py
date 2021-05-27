@@ -11,7 +11,7 @@ class AgentControl:
         self.entropy_coef = hyperparameters["entropy_coef"]
         self.entropy = []
 
-        self.device = device = 'cpu'# 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.device = 'cpu'# 'cuda' if torch.cuda.is_available() else 'cpu'
         self.shared_actor_nn = shared_model_actor
         self.actor_nn = ActorNN(env.observation_space.shape[0], env.action_space.n).to(self.device)
         self.actor_optim = torch.optim.Adam(params=shared_model_actor.parameters(), lr=hyperparameters['lr_actor'])
@@ -23,7 +23,7 @@ class AgentControl:
         self.update_nns = True
 
     def choose_action(self, obs):
-        # We need to synchronize two local models with two shared models
+        # We need to synchronize two local models with two shared models after every n-step
         if self.update_nns:
             self.update_nns = False
             self.actor_nn.load_state_dict(self.shared_actor_nn.state_dict())
