@@ -4,6 +4,12 @@ from actor_nn import ActorNN
 from critic_nn import CriticNN
 import numpy as np
 
+def ensure_shared_grads(model, shared_model):
+    for param, shared_param in zip(model.parameters(), shared_model.parameters()):
+        if shared_param.grad is not None:
+            return
+        shared_param._grad = param.grad
+
 class AgentControl:
     def __init__(self, env, hyperparameters, shared_model_actor, shared_model_critic):
         self.gamma = hyperparameters['gamma']
@@ -89,12 +95,9 @@ class AgentControl:
         self.critic_optim.zero_grad()
         # Calculate loss derivative
         loss.backward()
-
-        #------------------------------------------------------------------------------------------------------------------------------------------------
-        #torch.nn.utils.clip_grad_norm_(self.critic_nn.parameters(), 50)
-        self.ensure_shared_grads(self.critic_nn, self.shared_critic_nn)
-        #-------------------------------------------------------------------------------------------------------------------------------------------------
-
+        # Since we calculated all grads on local actor nn we do not have grads on shared actor nn
+        # So we need to copy grads for each NN parameter from local to global actor nn
+        ensure_shared_grads(self.critic_nn, self.shared_critic_nn)
         # Update current parameters based on calculated derivatives wtih Adam optimizer
         self.critic_optim.step()
         return loss.item()
@@ -125,21 +128,12 @@ class AgentControl:
         self.actor_optim.zero_grad()
         # Calculate loss derivative
         loss.backward()
-
-        #------------------------------------------------------------------------------------------------------------------------------------------------
-        #torch.nn.utils.clip_grad_norm_(self.actor_nn.parameters(), 50)
-        self.ensure_shared_grads(self.actor_nn, self.shared_actor_nn)
-        #-------------------------------------------------------------------------------------------------------------------------------------------------
-
+        # Since we calculated all grads on local actor nn we do not have grads on shared actor nn
+        # So we need to copy grads for each NN parameter from local to global actor nn
+        ensure_shared_grads(self.actor_nn, self.shared_actor_nn)
         # Update current parameters based on calculated derivatives wtih Adam optimizer
         self.actor_optim.step()
         # We need to reset entropy since we have done one n-step iteration.
         self.entropy = []
         self.update_nns = True
         return loss.item()
-
-    def ensure_shared_grads(self, model, shared_model):
-        for param, shared_param in zip(model.parameters(), shared_model.parameters()):
-            if shared_param.grad is not None:
-                return
-            shared_param._grad = param.grad

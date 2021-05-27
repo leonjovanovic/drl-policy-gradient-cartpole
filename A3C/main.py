@@ -13,7 +13,7 @@ if __name__ == '__main__':
         'lr_actor': 0.0002,
         'lr_critic': 0.0003,
         'gamma': 0.99,
-        'n-step': 3,
+        'n-step': 2,
         'entropy_flag': True,
         'entropy_coef': 0.001,
         'seed': 12,
@@ -23,7 +23,8 @@ if __name__ == '__main__':
         'max_test_games': 10,
         'writer_test': True,
         'writer_train': False,
-        'writer_log_dir': 'content/runs/AC3-16163232-2,3-n=3-e=001-seed=12++'
+        'writer_log_dir': 'content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++',
+        'print_test_results': True
     }
     #--------------------------------------------------------------
     # Set manuel seed so other processes dont get same
@@ -46,15 +47,21 @@ if __name__ == '__main__':
     end_flag = mp.Value('i', 0)
     lock = mp.Lock()
 
+    # We need to start test process which will take current ActorNN params, run 10 episodes and observe rewards, after which params get replaced by next, more updated ActorNN params
+    # All train processes stop when test process calculates mean of last 100 episodes to be =>495. After that we run for 90 more episodes to check if last params (used in last 10 episodes)
+    # are stable enough to be considered success.
     p = mp.Process(target=test_process, args=(HYPERPARAMETERS, shared_model_actor, counter, end_flag))
     p.start()
     processes.append(p)
 
-    # We will start all processes passing rank which will determine seed for NN params
+    # We will start all training processes passing rank which will determine seed for NN params
     for rank in range(0, HYPERPARAMETERS['num_processes']):
         p = mp.Process(target=train_process, args=(HYPERPARAMETERS, rank, shared_model_actor, shared_model_critic, counter, lock, end_flag))
         p.start()
         processes.append(p)
+    # We are waiting for each process to finish
     for p in processes:
         p.join()
-# !tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\A3C\content\runs" --host=127.0.0.1
+
+# For viewing live progress with tensorboard, open new CMD and type line below:
+# tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\A3C\content\runs" --host=127.0.0.1

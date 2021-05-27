@@ -17,27 +17,32 @@ def train_process(parameters, rank, shared_model_actor, shared_model_critic, cou
     ep_num = 0
     print("Starting process " + str(rank) + str("..."))
     while ep_num < parameters['max_train_games']:
+        # If test process have signalized that we reached neccecary goal (end_flag is shared variable)
         if end_flag.value == 1:
             break
+        # Choose action by getting probabilities from ActorNN
         action = agent.choose_action(obs)
+        # Execute chosen action and retrieve new state, reward and if its terminal state
         new_obs, reward, done, _ = env.step(action)
+        # To make loss more unrewarding we penalize loss more (instead of default 0)
         if done:
             reward = -20
-        #------------------------------------------------------------------------------------------------------------------------
+        # If we want to change value of shared variable we need to get lock so no one can change value until this process finishes changing value
         with lock:
-            #print(str(counter.value) + " - " + str(rank))
             counter.value += 1
-
+        # We pass information to agent which will be used to update current parameters of Actor and Critic NN
         agent.improve(obs, reward, new_obs, action, done)
+        # Change new state to be current state so we can continue
         obs = new_obs
+        # If we are at the end of episode (terminal state)
         if done:
-            avg_reward = agent.reset(ep_num, writer, rank)
+            # Add variables to the list (like episode rewards) and reset those variables
+            agent.reset(ep_num, writer)
             ep_num += 1
             obs = env.reset()
-            if avg_reward >= 495:
-                break
-    print("Ending process " + str(rank) + "!")
+    # Process will end if test process alerted train processes that we reached goal
+    print("Process " + str(rank) + " ended!")
+    # Close writer and enviroments at the end
     if writer is not None:
         writer.close()
     env.close()
-

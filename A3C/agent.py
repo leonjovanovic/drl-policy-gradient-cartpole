@@ -8,7 +8,6 @@ class Agent:
         self.n_step = hyperparameters['n-step']
         self.n_counter = 0
         self.memory = []
-
         self.ep_reward = 21
         self.total_reward = []
         self.critic_loss = 0
@@ -49,18 +48,14 @@ class Agent:
         self.total_critic_loss.append(self.critic_loss)
 
     # Print end of episode stats and add it to Tensorboard
-    def reset(self, ep_num, writer, rank):
+    def reset(self, ep_num, writer):
         self.total_reward.append(self.ep_reward)
         self.avg_critic_loss.append(np.mean(self.total_critic_loss))
         self.avg_actor_loss.append(np.mean(self.total_actor_loss))
-        #print("Process " + str(rank) + " Episode " + str(ep_num) + " total reward: " + str(self.ep_reward) + " Avg actor loss: " + str(
-        #    np.mean(self.avg_actor_loss[-100:])) + " Avg critic loss: " + str(np.mean(self.avg_critic_loss[-100:])) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
         if writer is not None:
             writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)
             writer.add_scalar('ep_reward', self.ep_reward, ep_num)
-
         self.total_actor_loss = []
         self.total_critic_loss = []
         self.ep_reward = 21
         return np.mean(self.total_reward[-100:])
-
