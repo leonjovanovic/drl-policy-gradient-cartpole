@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC1)/test_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/ac_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/agent_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/agent_control.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/critic_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/critic_nn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/policy_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/policy_nn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +118,7 @@
       <workItem from="1622118920155" duration="19167000" />
       <workItem from="1622197073177" duration="190000" />
       <workItem from="1622197886927" duration="2667000" />
+      <workItem from="1622212633254" duration="23000" />
     </task>
     <servers />
   </component>

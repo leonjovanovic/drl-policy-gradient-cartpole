@@ -7,7 +7,7 @@ from test_process import test_process
 from train_process import train_process
 
 if __name__ == '__main__':
-    #----------------------PARAMETERS------------------------------
+    #----------------------PARAMETERS-------------------------------
     MAX_WORKER_GAMES = 1000
     HYPERPARAMETERS = {
         'lr_actor': 0.0002,
@@ -26,7 +26,7 @@ if __name__ == '__main__':
         'writer_log_dir': 'content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++',
         'print_test_results': True
     }
-    #--------------------------------------------------------------
+    #---------------------------------------------------------------
     # Set manuel seed so other processes dont get same
     torch.manual_seed(HYPERPARAMETERS['seed'])
     # Create enviroment so we can get state (input) size and action space (output) size
