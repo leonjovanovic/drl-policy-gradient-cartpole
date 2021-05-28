@@ -45,7 +45,6 @@ while ep_num < MAX_EPISODES:
             stop = time.time()
             print(stop-start)
             break
-
 env.close()
 writer.close()
 # !tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\reinforce\content\runs" --host=127.0.0.1
