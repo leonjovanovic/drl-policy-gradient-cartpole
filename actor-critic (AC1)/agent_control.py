@@ -23,10 +23,10 @@ class AgentControl:
         self.input_shape = env.observation_space.shape[0]
         self.output_shape = env.action_space.n
 
-        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.policy_nn = PolicyNN(self.input_shape, self.output_shape, self.seed).to(self.device)
+        self.device = 'cpu'# 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.policy_nn = PolicyNN(self.input_shape, self.output_shape).to(self.device)
         self.policy_optim = optim.Adam(params=self.policy_nn.parameters(), lr=self.learning_rate_actor)
-        self.critic_nn = CriticNN(self.input_shape, self.seed).to(self.device)
+        self.critic_nn = CriticNN(self.input_shape).to(self.device)
         self.critic_optim = optim.Adam(params=self.critic_nn.parameters(), lr=self.learning_rate_critic)
         self.loss = nn.MSELoss()
 
@@ -85,6 +85,5 @@ class AgentControl:
         self.entropy = []
         return loss.item()
 
-
-
-
+    def get_policy_nn(self):
+        return self.policy_nn

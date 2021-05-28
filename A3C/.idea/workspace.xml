@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622147351.27208/events.out.tfevents.1622147351.DESKTOP-3P8CLT4.4224.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622147404.6503663/events.out.tfevents.1622147405.DESKTOP-3P8CLT4.9688.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622147569.213747/events.out.tfevents.1622147569.DESKTOP-3P8CLT4.6396.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../actor-critic (AC1)/test_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actor_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/actor_nn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/agent_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent_control.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/critic_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/critic_nn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/ac_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/agent_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/agent_control.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/critic_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/critic_nn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actor-critic (AC1)/policy_nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC1)/policy_nn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../links.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../actor-critic (AC1)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -124,7 +121,9 @@
       <workItem from="1621792500641" duration="892000" />
       <workItem from="1621853813929" duration="1627000" />
       <workItem from="1622060545122" duration="2376000" />
-      <workItem from="1622118920155" duration="18552000" />
+      <workItem from="1622118920155" duration="19167000" />
+      <workItem from="1622197073177" duration="190000" />
+      <workItem from="1622197886927" duration="2667000" />
     </task>
     <servers />
   </component>
@@ -148,6 +147,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A3C$process.coverage" NAME="process Coverage Results" MODIFIED="1621722324783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/A3C$main.coverage" NAME="main Coverage Results" MODIFIED="1622147567805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A3C$main.coverage" NAME="main Coverage Results" MODIFIED="1622148730027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
