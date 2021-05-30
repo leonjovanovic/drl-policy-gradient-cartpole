@@ -11,45 +11,33 @@ def ensure_shared_grads(model, shared_model):
         shared_param._grad = param.grad
 
 class AgentControl:
-    def __init__(self, env, hyperparameters, shared_model_actor, shared_model_critic):
+    def __init__(self, hyperparameters):
         self.gamma = hyperparameters['gamma']
         self.entropy_flag = hyperparameters["entropy_flag"]
         self.entropy_coef = hyperparameters["entropy_coef"]
         self.entropy = []
 
         self.device = 'cpu'# 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.loss = nn.MSELoss()
+        '''
         self.shared_actor_nn = shared_model_actor
         self.actor_nn = ActorNN(env.observation_space.shape[0], env.action_space.n).to(self.device)
         self.actor_optim = torch.optim.Adam(params=shared_model_actor.parameters(), lr=hyperparameters['lr_actor'])
         self.shared_critic_nn = shared_model_critic
         self.critic_nn = CriticNN(env.observation_space.shape[0]).to(self.device)
         self.critic_optim = torch.optim.Adam(params=shared_model_critic.parameters(), lr=hyperparameters['lr_critic'])
-        self.loss = nn.MSELoss()
 
-        self.update_nns = True
-
-    def choose_action(self, obs):
-        # We need to synchronize two local models with two shared models after every n-step
-        if self.update_nns:
-            self.update_nns = False
-            self.actor_nn.load_state_dict(self.shared_actor_nn.state_dict())
-            self.critic_nn.load_state_dict(self.shared_critic_nn.state_dict())
-        # We send current state as NN input and get two probabilities for each action (in sum of 1)
-        action_prob = self.actor_nn(torch.tensor(obs, dtype=torch.double).to(self.device))
-        # We dont take higher probability but take random value of 0 or 1 based on probabilities from NN
-        action = np.random.choice(np.array([0, 1]), p=action_prob.cpu().data.numpy())
-        # Add sum of probability*log(probability) to list so we can count mean of list when we calculate loss
-        # We detach grads since we dont need them when we do loss.backwards() in future
-        if self.entropy_flag:
-            self.entropy.append(-self.entropy_coef * torch.sum(action_prob * torch.log(action_prob)).detach())
-        return action
+    def update_nns(self):
+        self.actor_nn.load_state_dict(self.shared_actor_nn.state_dict())
+        self.critic_nn.load_state_dict(self.shared_critic_nn.state_dict())
+        '''
 
     #Return accumulated discounted estimated reward from memory
-    def get_rewards(self, memory):
+    def get_rewards(self, memory, critic_nn):
         # Variable i represents number of rows in memory starting from 0 (number is basically n-step)
         i = len(memory) - 1
         # Calculate Critic value of new state of last step which we will add to accumulated rewards
-        v_new = self.critic_nn(torch.tensor(memory[i].new_obs, dtype=torch.float64).to(self.device)).detach()
+        v_new = critic_nn(torch.tensor(memory[i].new_obs, dtype=torch.float64).to(self.device)).detach()
         rewards = []
         # We take just a value of Critic output which will act as base when we add discounted rewards backwards
         temp = v_new.item()
@@ -59,7 +47,7 @@ class AgentControl:
             temp = memory[i].reward + self.gamma * temp
             i -= 1
         # Transform to Tensors so we can use rewards as estimated target
-        rewards = torch.tensor(rewards, dtype=torch.float64).to(self.device)
+        #rewards = torch.tensor(rewards, dtype=torch.float64).to(self.device)
         return rewards
 
     # Return states and actions in arrays sorted backward. It needs to be backward because rewards have to be calculated from last step.
@@ -75,47 +63,47 @@ class AgentControl:
             actions.append(memory[i].action)
             i -= 1
         # Transform to Tensors so we can use states as NN input
-        states = torch.tensor(states, dtype=torch.float64).to(self.device)
+        #states = torch.tensor(states, dtype=torch.float64).to(self.device)
         return states, actions
 
     # Update Critic NN parameters based on estimated target (rewards) and current value (v_curr)
-    def update_critic(self, memory):
+    def update_critic(self, memory, critic_nn, critic_optim):
         # We call function to get accumulated discounted estimated rewards which will act as target
         # and states which will be used as paralel input for Critic NN
-        rewards = self.get_rewards(memory)
+        rewards = self.get_rewards(memory, critic_nn)
         states, _ = self.get_states_actions(memory)
         # NN output needs to be squeeze(-1) to lower dimension from matrix to vector of outputs
-        v_curr = self.critic_nn(states).squeeze(-1)
+        v_curr = critic_nn(states).squeeze(-1)
         # Calculate MSE loss between target (rewards) and NN output (v_curr)
         loss = self.loss(rewards, v_curr)
         # Add entropy if flag is true
         if self.entropy_flag:
             loss += torch.mean(torch.tensor(self.entropy, dtype=torch.float64).to(self.device).detach())
         # We need to set the gradients to zero before starting to do backpropragation because PyTorch accumulates the gradients on subsequent backward passes
-        self.critic_optim.zero_grad()
+        critic_optim.zero_grad()
         # Calculate loss derivative
         loss.backward()
         # Since we calculated all grads on local actor nn we do not have grads on shared actor nn
         # So we need to copy grads for each NN parameter from local to global actor nn
-        ensure_shared_grads(self.critic_nn, self.shared_critic_nn)
+        #ensure_shared_grads(self.critic_nn, self.shared_critic_nn)
         # Update current parameters based on calculated derivatives wtih Adam optimizer
-        self.critic_optim.step()
+        critic_optim.step()
         return loss.item()
 
     # Estimate advantage as difference between estimated return and actual value
-    def estimate_advantage(self, memory):
+    def estimate_advantage(self, memory, critic_nn):
         # We need to call again function because critic NN has changed
-        rewards = self.get_rewards(memory)
+        rewards = self.get_rewards(memory, critic_nn)
         states, _ = self.get_states_actions(memory)
-        v_curr = self.critic_nn(states).squeeze(-1)
+        v_curr = critic_nn(states).squeeze(-1)
         # We estimate advantage as how much Critic NN is right or wrong
         return (rewards - v_curr).detach()
 
     # Update Actor NN parameters based on gradient log(action probability) * action probability
-    def update_actor(self, memory, advantage):
+    def update_actor(self, memory, advantage, actor_nn, actor_optim):
         # States which will be used as paralel input for Actor NN and actions will be used to know which probability to take
         states, actions = self.get_states_actions(memory)
-        action_prob = self.actor_nn(states)
+        action_prob = actor_nn(states)
         # action_prob is n_step x 2 matrix. We will transfrorm it to n_step x 1 by selecting only probabilities of actions we took
         action_prob = action_prob[range(action_prob.shape[0]), actions]
         # Loss is calculated as log(x) * x for each step. We calculate mean to get single value loss and add minus because torch.log will add additional minus.
@@ -125,15 +113,14 @@ class AgentControl:
         if self.entropy_flag:
             loss += torch.mean(torch.tensor(self.entropy, dtype=torch.float64).to(self.device).detach())
         # We need to set the gradients to zero before starting to do backpropragation because PyTorch accumulates the gradients on subsequent backward passes
-        self.actor_optim.zero_grad()
+        actor_optim.zero_grad()
         # Calculate loss derivative
         loss.backward()
         # Since we calculated all grads on local actor nn we do not have grads on shared actor nn
         # So we need to copy grads for each NN parameter from local to global actor nn
-        ensure_shared_grads(self.actor_nn, self.shared_actor_nn)
+        #ensure_shared_grads(self.actor_nn, self.shared_actor_nn)
         # Update current parameters based on calculated derivatives wtih Adam optimizer
-        self.actor_optim.step()
+        actor_optim.step()
         # We need to reset entropy since we have done one n-step iteration.
         self.entropy = []
-        self.update_nns = True
         return loss.item()
