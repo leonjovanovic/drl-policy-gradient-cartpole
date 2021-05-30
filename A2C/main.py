@@ -45,7 +45,7 @@ if __name__ == '__main__':
     agent_control = AgentControl(HYPERPARAMETERS)
     obs = []
     for rank in range(0, HYPERPARAMETERS['num_processes']):
-        obs[rank] = env.reset()
+        obs.append(env.reset())
     # List of all workers/processes
     processes = []
     counter_steps = 0
@@ -58,6 +58,8 @@ if __name__ == '__main__':
         states = []
         actions = []
         obs = []
+        for rank in range(0, HYPERPARAMETERS['num_processes']):
+            obs.append(env.reset())
         # We need to start test process which will take current ActorNN params, run 10 episodes and observe rewards, after which params get replaced by next, more updated ActorNN params
         # All train processes stop when test process calculates mean of last 100 episodes to be =>495. After that we run for 90 more episodes to check if last params (used in last 10 episodes)
         # are stable enough to be considered success.
@@ -67,11 +69,13 @@ if __name__ == '__main__':
 
         # We will start all training processes passing rank which will determine seed for NN params
         for rank in range(0, HYPERPARAMETERS['num_processes']):
+            print(rank)
             p = mp.Process(target=train_process, args=(HYPERPARAMETERS, rank, shared_model_actor, memory, obs[rank]))
             p.start()
             processes.append(p)
         # We are waiting for each process to finish collecting Memory
         for p in processes:
+            print(p.pid)
             p.join()
             rewards.append(agent_control.get_rewards(memory.get(), shared_model_critic))
             print(rewards)
