@@ -1,14 +1,5 @@
 import torch.optim
 import torch.nn as nn
-from actor_nn import ActorNN
-from critic_nn import CriticNN
-import numpy as np
-
-def ensure_shared_grads(model, shared_model):
-    for param, shared_param in zip(model.parameters(), shared_model.parameters()):
-        if shared_param.grad is not None:
-            return
-        shared_param._grad = param.grad
 
 class AgentControl:
     def __init__(self, hyperparameters):
@@ -16,18 +7,6 @@ class AgentControl:
 
         self.device = 'cpu'# 'cuda' if torch.cuda.is_available() else 'cpu'
         self.loss = nn.MSELoss()
-        '''
-        self.shared_actor_nn = shared_model_actor
-        self.actor_nn = ActorNN(env.observation_space.shape[0], env.action_space.n).to(self.device)
-        self.actor_optim = torch.optim.Adam(params=shared_model_actor.parameters(), lr=hyperparameters['lr_actor'])
-        self.shared_critic_nn = shared_model_critic
-        self.critic_nn = CriticNN(env.observation_space.shape[0]).to(self.device)
-        self.critic_optim = torch.optim.Adam(params=shared_model_critic.parameters(), lr=hyperparameters['lr_critic'])
-
-    def update_nns(self):
-        self.actor_nn.load_state_dict(self.shared_actor_nn.state_dict())
-        self.critic_nn.load_state_dict(self.shared_critic_nn.state_dict())
-        '''
 
     #Return accumulated discounted estimated reward from memory
     def get_rewards(self, old_rewards, new_states, critic_nn):
@@ -49,25 +28,18 @@ class AgentControl:
 
     # Return states and actions in arrays sorted backward. It needs to be backward because rewards have to be calculated from last step.
     # Since we need rewards (target) to match its current state we need to sort states backwards as well.
-    def get_states_actions_entropies(self, memory):
+    def get_states_actions_entropies(self, st, ac, en):
         # Variable i represents number of rows in memory starting from 0 (number is basically n-step)
-        i = len(memory) - 1
+        i = len(st) - 1
         states = []
         actions = []
         entropies = []
         while i > -1:
             # For states and actions we create simple lists which we need for critic/actor paralel input
-            states.append(memory[i].obs)
-            actions.append(memory[i].action)
-            entropies.append(memory[i].entropy)
+            states.append(st[i])
+            actions.append(ac[i])
+            entropies.append(en[i])
             i -= 1
-        # Transform to Tensors so we can use states as NN input
-        states = torch.tensor(states, dtype=torch.float64).to(self.device)
-        actions = torch.tensor(actions, dtype=torch.float64).to(self.device)
-        entropies = torch.tensor(entropies, dtype=torch.float64).to(self.device)
-        #states = np.array(states)
-        #actions = np.array(actions)
-        #entropies = np.array(entropies)
         return states, actions, entropies
 
     # Update Critic NN parameters based on estimated target (rewards) and current value (v_curr)

@@ -6,7 +6,7 @@ import time
 from actor_nn import ActorNN
 
 
-def test_process(parameters, shared_model_actor, counter, end_flag):
+def test_process(parameters, shared_model_actor, counter, end_flag, wait):
     # Create enviroment and agent
     env = gym.make(parameters['env_name'])
     # If writer flag is True create TensorBoard writer (and start it on independent console to view results)
@@ -24,6 +24,7 @@ def test_process(parameters, shared_model_actor, counter, end_flag):
     # This loop is meant to be over only when we reach mean score of 495 or higher
     while True:
         ep_num = 0
+        wait.get()
         # Each iteration we need to replace old params with new, update Actor NN params
         model.load_state_dict(shared_model_actor.state_dict())
         # One iteration will play max_test_games episodes/games before updating NN

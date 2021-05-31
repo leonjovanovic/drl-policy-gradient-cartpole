@@ -20,13 +20,13 @@ if __name__ == '__main__':
         'entropy_flag': True,
         'entropy_coef': 0.001,
         'seed': 12,
-        'num_processes': 10,
+        'num_processes': 12,
         'env_name': "CartPole-v1",
-        'max_train_games': 100000,
+        'max_train_games': 1000,
         'max_test_games': 10,
-        'writer_test': False,
+        'writer_test': True,
         'writer_train': False,
-        'writer_log_dir': 'content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++',
+        'writer_log_dir': 'content/runs/A2C-16163232-2,3-n=2-e=001-seed=12++',
         'print_test_results': True
     }
     #---------------------------------------------------------------
@@ -56,17 +56,21 @@ if __name__ == '__main__':
     for rank in range(0, HYPERPARAMETERS['num_processes']):
         continue_queues.append(mp.Queue())
         continue_queues[rank].put(rank)
+    end_flag = mp.Value('i', 0)
+    counter_steps = mp.Value('i', 0)
+    wait_test = mp.Queue()
+    wait_test.put(1)
     ep_num = 0
 
     # We need to start test process which will take current ActorNN params, run 10 episodes and observe rewards, after which params get replaced by next, more updated ActorNN params
     # All train processes stop when test process calculates mean of last 100 episodes to be =>495. After that we run for 90 more episodes to check if last params (used in last 10 episodes)
     # are stable enough to be considered success.
-    #p = mp.Process(target=test_process, args=(HYPERPARAMETERS, shared_model_actor, counter, end_flag))
-    #p.start()
-    #processes.append(p)
+    p = mp.Process(target=test_process, args=(HYPERPARAMETERS, shared_model_actor, counter_steps, end_flag, wait_test))
+    p.start()
+    processes.append(p)
     # We will start all training processes passing rank which will determine seed for NN params
     for rank in range(0, HYPERPARAMETERS['num_processes']):
-        p = mp.Process(target=train_process, args=(HYPERPARAMETERS, rank, shared_model_actor, memory_queues[rank], continue_queues[rank]))
+        p = mp.Process(target=train_process, args=(HYPERPARAMETERS, rank, shared_model_actor, memory_queues[rank], continue_queues[rank], end_flag))
         p.start()
         processes.append(p)
     while True:
@@ -84,23 +88,25 @@ if __name__ == '__main__':
             rewards = memory_queues[rank].get()
             entropies = memory_queues[rank].get()
             all_rewards.extend(agent_control.get_rewards(rewards, new_states, shared_model_critic))
-            #OVDE SI STAO, ------------------------------------------------------------------------------------------------------------------------------------------
-            #st, ac, en = agent_control.get_states_actions_entropies(cur_memory)
-            #states.extend(st.numpy())
-            #actions.extend(ac.numpy())
-            #entropies.extend(en.numpy())
-        #rewards = np.array(rewards)
-        #states = np.array(states)
-        #actions = np.array(actions)
-        #entropies = np.array(entropies)
+            st, ac, en = agent_control.get_states_actions_entropies(states, actions, entropies)
+            all_states.extend(st)
+            all_actions.extend(ac)
+            all_entropies.extend(en)
         #Improve
-        #critic_loss = agent_control.update_critic(rewards, states, entropies, shared_model_critic, critic_optim)
+        critic_loss = agent_control.update_critic(all_rewards, all_states, all_entropies, shared_model_critic, critic_optim)
         #CHECK IF WE NEED TO CALCULATE REWARDS AGAIN BECAUSE CRITIC CHANGED IN LAST LINE
-        #advantage = agent_control.estimate_advantage(rewards, states, shared_model_critic)
-        #actor_loss = agent_control.update_actor(states, actions, entropies, advantage, shared_model_actor, actor_optim)
+        advantage = agent_control.estimate_advantage(all_rewards, all_states, shared_model_critic)
+        actor_loss = agent_control.update_actor(all_states, all_actions, all_entropies, advantage, shared_model_actor, actor_optim)
         # Record number of steps
-        counter_steps += HYPERPARAMETERS['num_processes'] * HYPERPARAMETERS['n-step']
+        counter_steps.value += HYPERPARAMETERS['num_processes'] * HYPERPARAMETERS['n-step']
         for rank in range(0, HYPERPARAMETERS['num_processes']):
             continue_queues[rank].put(rank)
+
+        wait_test.put(1)
+        # If test process have signalized that we reached neccecary goal (end_flag is shared variable)
+        if end_flag.value == 1:
+            break
+    for p in processes:
+        p.join()
 # For viewing live progress with tensorboard, open new CMD and type line below:
-# tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\A3C\content\runs" --host=127.0.0.1
+# tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\A2C\content\runs" --host=127.0.0.1

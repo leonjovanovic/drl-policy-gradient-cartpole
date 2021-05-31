@@ -9,7 +9,7 @@ from critic_nn import CriticNN
 
 Memory = namedtuple('Memory', ['obs', 'action', 'new_obs', 'reward', 'entropy'])
 
-def train_process(hyperparameters, rank, shared_model_actor, memory, continue_queue):
+def train_process(hyperparameters, rank, shared_model_actor, memory, continue_queue, end_flag):
     # Create enviroment and agent
     env = gym.make(hyperparameters['env_name'])
     device = 'cpu'# 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -20,6 +20,9 @@ def train_process(hyperparameters, rank, shared_model_actor, memory, continue_qu
     ep_num = 0
     print("Starting process " + str(rank) + str("..."))
     while ep_num < hyperparameters['max_train_games']:
+        # If test process have signalized that we reached neccecary goal (end_flag is shared variable)
+        if end_flag.value == 1:
+            break
         continue_queue.get()
         states = []
         actions = []
@@ -55,7 +58,7 @@ def train_process(hyperparameters, rank, shared_model_actor, memory, continue_qu
             if done:
                 ep_num += 1
                 all_rewards.append(ep_reward)
-                print("Process " + str(rank) + " episode " + str(ep_num) + " reward " + str(ep_reward) + " average 100 reward " + str(np.mean(all_rewards[-100:])))
+                #print("Process " + str(rank) + " episode " + str(ep_num) + " reward " + str(ep_reward) + " average 100 reward " + str(np.mean(all_rewards[-100:])))
                 ep_reward = 21
                 obs = env.reset()
                 break
