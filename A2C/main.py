@@ -13,20 +13,20 @@ if __name__ == '__main__':
     #----------------------PARAMETERS-------------------------------
     MAX_WORKER_GAMES = 1000
     HYPERPARAMETERS = {
-        'lr_actor': 0.0002,
-        'lr_critic': 0.0003,
+        'lr_actor': 0.0006,
+        'lr_critic': 0.0007,
         'gamma': 0.99,
-        'n-step': 2,
+        'n-step': 7,
         'entropy_flag': True,
         'entropy_coef': 0.001,
         'seed': 12,
-        'num_processes': 12,
+        'num_processes': 10,
         'env_name': "CartPole-v1",
         'max_train_games': 1000,
         'max_test_games': 10,
         'writer_test': True,
         'writer_train': False,
-        'writer_log_dir': 'content/runs/A2C-16163232-2,3-n=2-e=001-seed=12++',
+        'writer_log_dir': 'content/runs/A2C-16163232-6,7-n=6-e=001-seed=12-proc=10',
         'print_test_results': True
     }
     #---------------------------------------------------------------
@@ -73,7 +73,9 @@ if __name__ == '__main__':
         p = mp.Process(target=train_process, args=(HYPERPARAMETERS, rank, shared_model_actor, memory_queues[rank], continue_queues[rank], end_flag))
         p.start()
         processes.append(p)
+    counter = -1
     while True:
+        counter += 1
         all_rewards = []
         all_states = []
         all_actions = []
@@ -81,6 +83,8 @@ if __name__ == '__main__':
         # We are waiting for each process to finish collecting Memory
         for rank in range(0, HYPERPARAMETERS['num_processes']):
             gc.collect()
+            if end_flag.value == 1:
+                break
             #Collect
             states = memory_queues[rank].get()
             actions = memory_queues[rank].get()
@@ -101,8 +105,8 @@ if __name__ == '__main__':
         counter_steps.value += HYPERPARAMETERS['num_processes'] * HYPERPARAMETERS['n-step']
         for rank in range(0, HYPERPARAMETERS['num_processes']):
             continue_queues[rank].put(rank)
-
-        wait_test.put(1)
+        if counter % 20 == 0:
+            wait_test.put(1)
         # If test process have signalized that we reached neccecary goal (end_flag is shared variable)
         if end_flag.value == 1:
             break

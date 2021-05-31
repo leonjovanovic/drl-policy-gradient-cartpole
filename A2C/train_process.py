@@ -22,6 +22,8 @@ def train_process(hyperparameters, rank, shared_model_actor, memory, continue_qu
     while ep_num < hyperparameters['max_train_games']:
         # If test process have signalized that we reached neccecary goal (end_flag is shared variable)
         if end_flag.value == 1:
+            # Process will end if test process alerted train processes that we reached goal
+            print("Process " + str(rank) + " ended on episode " + str(ep_num) + "!")
             break
         continue_queue.get()
         states = []
@@ -67,6 +69,4 @@ def train_process(hyperparameters, rank, shared_model_actor, memory, continue_qu
         memory.put(new_states)
         memory.put(rewards)
         memory.put(entropies)
-    # Process will end if test process alerted train processes that we reached goal
-    print("Process " + str(rank) + " ended!")
     env.close()
