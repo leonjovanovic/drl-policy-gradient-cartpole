@@ -24,6 +24,7 @@ def test_process(parameters, shared_model_actor, counter, end_flag, wait):
     # This loop is meant to be over only when we reach mean score of 495 or higher
     while True:
         ep_num = 0
+        # So we don't test Actor NN nonstop, we wait until main tell test process to test nn
         wait.get()
         # Each iteration we need to replace old params with new, update Actor NN params
         model.load_state_dict(shared_model_actor.state_dict())
@@ -76,7 +77,6 @@ def test_process(parameters, shared_model_actor, counter, end_flag, wait):
             obs = env.reset()
             ep_num += 1
             ep_reward = 21
-
     # If we reached necessary goal and last Actor parameters are valid
     if np.mean(all_rewards[-100:]) >= 495:
         print("Testing finished, parameters are valid!")

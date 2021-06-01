@@ -4,13 +4,12 @@ import torch.nn as nn
 class AgentControl:
     def __init__(self, hyperparameters):
         self.gamma = hyperparameters['gamma']
-
         self.device = 'cpu'# 'cuda' if torch.cuda.is_available() else 'cpu'
         self.loss = nn.MSELoss()
 
     #Return accumulated discounted estimated reward from memory
     def get_rewards(self, old_rewards, new_states, critic_nn):
-        # Variable i represents number of rows in memory starting from 0 (number is basically n-step)
+        # Variable i represents number of rows in memory starting from 0 (number i is basically n-step)
         i = len(old_rewards) - 1
         # Calculate Critic value of new state of last step which we will add to accumulated rewards
         v_new = critic_nn(torch.tensor(new_states[i], dtype=torch.float64).to(self.device)).detach()
@@ -22,8 +21,6 @@ class AgentControl:
             rewards.append(old_rewards[i] + self.gamma * temp)
             temp = old_rewards[i] + self.gamma * temp
             i -= 1
-        # Transform to Tensors so we can use rewards as estimated target
-        #rewards = torch.tensor(rewards, dtype=torch.float64).to(self.device)
         return rewards
 
     # Return states and actions in arrays sorted backward. It needs to be backward because rewards have to be calculated from last step.
@@ -82,9 +79,6 @@ class AgentControl:
         actor_optim.zero_grad()
         # Calculate loss derivative
         loss.backward()
-        # Since we calculated all grads on local actor nn we do not have grads on shared actor nn
-        # So we need to copy grads for each NN parameter from local to global actor nn
-        #ensure_shared_grads(self.actor_nn, self.shared_actor_nn)
         # Update current parameters based on calculated derivatives wtih Adam optimizer
         actor_optim.step()
         # We need to reset entropy since we have done one n-step iteration.

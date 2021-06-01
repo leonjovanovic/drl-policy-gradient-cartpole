@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/content/runs/A2C-16163232-2,3-n=2-e=001-seed=12++1622465787.5284812/events.out.tfevents.1622465787.DESKTOP-3P8CLT4.16168.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/A2C-16163232-2,3-n=2-e=001-seed=12++1622480467.9166348/events.out.tfevents.1622480470.DESKTOP-3P8CLT4.10128.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/A2C-16163232-4,4-n=4-e=001-seed=12 1622481200.1988933/events.out.tfevents.1622481202.DESKTOP-3P8CLT4.9848.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/A2C-16163232-6,7-n=6-e=001-seed=12-proc=101622484509.4903128/events.out.tfevents.1622484509.DESKTOP-3P8CLT4.1528.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/A2C-16163232-6,7-n=6-e=001-seed=12-proc=101622485365.6268868/events.out.tfevents.1622485366.DESKTOP-3P8CLT4.7676.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/runs/A2C-16163232-6,9-n=5-e=001-seed=12-proc=101622483755.0237863/events.out.tfevents.1622483755.DESKTOP-3P8CLT4.5836.0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent_control.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_process.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,6 +127,7 @@
       <workItem from="1622388427319" duration="20417000" />
       <workItem from="1622450601661" duration="6677000" />
       <workItem from="1622480373118" duration="3665000" />
+      <workItem from="1622541507584" duration="4735000" />
     </task>
     <servers />
   </component>
@@ -154,7 +151,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A3C$process.coverage" NAME="process Coverage Results" MODIFIED="1621722324783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/A2C$main.coverage" NAME="main Coverage Results" MODIFIED="1622485363940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A2C$main.coverage" NAME="main Coverage Results" MODIFIED="1622544834471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/A3C$main.coverage" NAME="main Coverage Results" MODIFIED="1622148730027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

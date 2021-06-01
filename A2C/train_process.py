@@ -1,11 +1,7 @@
 import gym
 import torch
 import numpy as np
-
 from collections import namedtuple
-
-from actor_nn import ActorNN
-from critic_nn import CriticNN
 
 Memory = namedtuple('Memory', ['obs', 'action', 'new_obs', 'reward', 'entropy'])
 
@@ -13,9 +9,8 @@ def train_process(hyperparameters, rank, shared_model_actor, memory, continue_qu
     # Create enviroment and agent
     env = gym.make(hyperparameters['env_name'])
     device = 'cpu'# 'cuda' if torch.cuda.is_available() else 'cpu'
-    ep_memory = []
+    # We set ep_reward to 21 so we can nullify -20 reward we added at the end, so we can compare results as intended
     ep_reward = 21
-    all_rewards = []
     obs = env.reset()
     ep_num = 0
     print("Starting process " + str(rank) + str("..."))
@@ -25,7 +20,13 @@ def train_process(hyperparameters, rank, shared_model_actor, memory, continue_qu
             # Process will end if test process alerted train processes that we reached goal
             print("Process " + str(rank) + " ended on episode " + str(ep_num) + "!")
             break
+        # Basically simulation of multiple producers and one consumer. Here train process (producer) waits until
+        # main (consumer) alerts he is done collecting. There are 'num_processes' continue queues so one process
+        # cannot run twice wile other gets blocked
         continue_queue.get()
+        # Initially I wanted to create namedtuple Memory with state, reward,... but puting object into memory queue for main
+        # to read created Memory leak and main did not release memory until it breaks. Workaround is to separate each field in Memory
+        # and to send them separately since type won't be object, but some primitive which won't cause memory leak.
         states = []
         actions = []
         new_states = []
@@ -48,7 +49,7 @@ def train_process(hyperparameters, rank, shared_model_actor, memory, continue_qu
             if done:
                 reward = -20
             ep_reward += reward
-            #ep_memory.append(Memory(obs=obs, action=action, new_obs=new_obs, reward=reward, entropy=entropy))
+            # We append step information to 5 lists which will be sent independently trough memory queue
             states.append(obs)
             actions.append(action)
             new_states.append(new_obs)
@@ -56,14 +57,15 @@ def train_process(hyperparameters, rank, shared_model_actor, memory, continue_qu
             entropies.append(entropy)
             # Change new state to be current state so we can continue
             obs = new_obs
-            # If we are at the end of episode (terminal state)
+            # If we are at the end of episode (terminal state) update and reset counters and state
             if done:
                 ep_num += 1
-                all_rewards.append(ep_reward)
-                #print("Process " + str(rank) + " episode " + str(ep_num) + " reward " + str(ep_reward) + " average 100 reward " + str(np.mean(all_rewards[-100:])))
                 ep_reward = 21
                 obs = env.reset()
                 break
+        # Each memory queue is unique to each process (see memory_queues[rank] in main.py) so we dont have mix up
+        # between different processes. Queue is FIFO and in each iteration we will put 5 times and get 5 times so
+        # there won't be any mix up between 2 iteration of same process.
         memory.put(states)
         memory.put(actions)
         memory.put(new_states)
