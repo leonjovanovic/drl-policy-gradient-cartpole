@@ -2,7 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10 1622658853.5337198/events.out.tfevents.1622658853.DESKTOP-3P8CLT4.6160.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10 1622658957.35308/events.out.tfevents.1622658957.DESKTOP-3P8CLT4.3860.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10 1622659022.0640302/events.out.tfevents.1622659022.DESKTOP-3P8CLT4.6184.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10 1622659045.0259473/events.out.tfevents.1622659045.DESKTOP-3P8CLT4.2252.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10 1622659120.873902/events.out.tfevents.1622659121.DESKTOP-3P8CLT4.12728.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10-154 1622658563.9434698/events.out.tfevents.1622658564.DESKTOP-3P8CLT4.3492.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10-164 1622658328.9857988/events.out.tfevents.1622658329.DESKTOP-3P8CLT4.4648.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10-165 1622658755.2428946/events.out.tfevents.1622658755.DESKTOP-3P8CLT4.4500.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10-181 1622658437.9113302/events.out.tfevents.1622658438.DESKTOP-3P8CLT4.6696.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10-182 1622658503.6196413/events.out.tfevents.1622658504.DESKTOP-3P8CLT4.12604.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10-192 1622658693.9979317/events.out.tfevents.1622658694.DESKTOP-3P8CLT4.4660.0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10-196 1622658613.9805958/events.out.tfevents.1622658614.DESKTOP-3P8CLT4.2684.0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/A3C.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/A2C.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_process.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/.idea/A3C.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3C/.idea/A2C.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3C/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3C/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-101622647213.8902419/events.out.tfevents.1622647214.DESKTOP-3P8CLT4.14140.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622140970.5003424/events.out.tfevents.1622140970.DESKTOP-3P8CLT4.15744.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622141138.5440981/events.out.tfevents.1622141138.DESKTOP-3P8CLT4.5632.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622147351.27208/events.out.tfevents.1622147351.DESKTOP-3P8CLT4.4224.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622147404.6503663/events.out.tfevents.1622147405.DESKTOP-3P8CLT4.9688.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622147569.213747/events.out.tfevents.1622147569.DESKTOP-3P8CLT4.6396.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622148731.4737027/events.out.tfevents.1622148731.DESKTOP-3P8CLT4.9192.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622565656.4491394/events.out.tfevents.1622565659.DESKTOP-3P8CLT4.9588.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622647100.6367376/events.out.tfevents.1622647101.DESKTOP-3P8CLT4.11660.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622647168.0684044/events.out.tfevents.1622647168.DESKTOP-3P8CLT4.12012.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=3-e=001-seed=12++1622143217.8941486/events.out.tfevents.1622143218.DESKTOP-3P8CLT4.4844.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=3-e=001-seed=12++1622143294.6842654/events.out.tfevents.1622143295.DESKTOP-3P8CLT4.15684.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=4-e=001-seed=12++1622139427.4910564/events.out.tfevents.1622139427.DESKTOP-3P8CLT4.15652.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=5-e=001-seed=12++1622138327.3024502/events.out.tfevents.1622138327.DESKTOP-3P8CLT4.15688.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=6-e=001-seed=12++1622138487.0930014/events.out.tfevents.1622138487.DESKTOP-3P8CLT4.3504.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../A3C/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A3C/test_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/../A3C/test_process.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,11 +77,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../actor-critic (AC)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="A3C" />
+      <module name="A2C" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -67,7 +103,7 @@
       <method v="2" />
     </configuration>
     <configuration name="train_process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="A3C" />
+      <module name="A2C" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -127,6 +163,7 @@
       <workItem from="1622565488234" duration="37000" />
       <workItem from="1622584634072" duration="727000" />
       <workItem from="1622631419217" duration="73000" />
+      <workItem from="1622664085370" duration="4883000" />
     </task>
     <servers />
   </component>
@@ -150,7 +187,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A3C$process.coverage" NAME="process Coverage Results" MODIFIED="1621722324783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/A2C$main.coverage" NAME="main Coverage Results" MODIFIED="1622544834471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A2C$main.coverage" NAME="main Coverage Results" MODIFIED="1622670252366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/A3C$main.coverage" NAME="main Coverage Results" MODIFIED="1622148730027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

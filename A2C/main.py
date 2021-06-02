@@ -15,7 +15,7 @@ if __name__ == '__main__':
         'lr_actor': 0.0006,
         'lr_critic': 0.0007,
         'gamma': 0.99,
-        'n-step': 7,
+        'n-step': 3,
         'entropy_flag': True,
         'entropy_coef': 0.001,
         'seed': 12,
@@ -25,7 +25,7 @@ if __name__ == '__main__':
         'max_test_games': 10,
         'writer_test': False,
         'writer_train': False,
-        'writer_log_dir': 'content/runs/A2C-16163232-6,7-n=6-e=001-seed=12-proc=10',
+        'writer_log_dir': 'content/runs/A2C-16163232-6,7-n=4-e=001-seed=12-proc=10',
         'print_test_results': True
     }
     #---------------------------------------------------------------

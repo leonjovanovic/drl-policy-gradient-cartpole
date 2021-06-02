@@ -54,8 +54,6 @@ def test_process(parameters, shared_model_actor, counter, end_flag):
             print("Test process - Step " + str(step) + " Average 10 reward: " + str(np.mean(all_rewards[-10:])) + " Average 100 reward: " + str(np.mean(all_rewards[-100:])))
         # If we reached necessary goal, end loop
         if np.mean(all_rewards[-10:]) >= 495:
-            # Since test process is only process that can change end_flag shared variable (and there is only 1 test process)
-            # We dont need to use sempahore (lock) and we can just change it for train processes to read it.
             print("End training! Started validating...")
             # Since we only tested each parameters on only 10 episodes (instead of 100 as is requested by Cartpole challenge)
             # We need to test 90 episodes more on same parameters we tested last 10 episodes to make sure they are valid
@@ -75,6 +73,8 @@ def test_process(parameters, shared_model_actor, counter, end_flag):
 
             # If we reached necessary goal and last Actor parameters are valid
             if np.mean(all_rewards[-100:]) >= 495:
+                # Since test process is only process that can change end_flag shared variable (and there is only 1 test process)
+                # We dont need to use sempahore (lock) and we can just change it for train processes to read it.
                 end_flag.value = 1
                 print("Testing finished, parameters are valid!")
                 if writer is not None:

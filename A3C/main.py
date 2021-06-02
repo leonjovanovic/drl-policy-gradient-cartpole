@@ -16,7 +16,7 @@ if __name__ == '__main__':
         'n-step': 2,
         'entropy_flag': True,
         'entropy_coef': 0.001,
-        'seed': 12,
+        'seed': -1,
         'num_processes': 10,
         'env_name': "CartPole-v1",
         'max_train_games': 1000,
