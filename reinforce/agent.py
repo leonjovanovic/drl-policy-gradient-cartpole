@@ -47,9 +47,10 @@ class Agent:
     def reset_values(self, ep_num):
         self.episode_reward.append(21)
         self.total_reward.append(sum(self.episode_reward))
-        print("Episode "+str(ep_num)+" total reward: " + str(sum(self.episode_reward)) + " Loss: " + str(np.mean(self.total_loss[-100:])) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
-        self.summary_writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)
-        self.summary_writer.add_scalar('ep_reward', sum(self.episode_reward), ep_num)
+        #print("Episode "+str(ep_num)+" total reward: " + str(sum(self.episode_reward)) + " Loss: " + str(np.mean(self.total_loss[-100:])) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
+        if self.summary_writer is not None:
+            self.summary_writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)
+            self.summary_writer.add_scalar('ep_reward', sum(self.episode_reward), ep_num)
         self.episode_obs = []
         self.episode_action = []
         self.episode_action_prob = []
@@ -57,3 +58,5 @@ class Agent:
         self.episode_reward = []
         return np.mean(self.total_reward[-100:])
 
+    def get_policy_nn(self):
+        return self.agent_control.get_policy_nn()

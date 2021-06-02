@@ -1,9 +1,6 @@
 import torch
 import torch.nn as nn
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
-
-
 class PolicyNN(nn.Module):
     def __init__(self, input_shape, output_shape):
         super(PolicyNN, self).__init__()

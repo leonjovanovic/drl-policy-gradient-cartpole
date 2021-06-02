@@ -3,7 +3,7 @@ import torch
 import numpy as np
 from torch.utils.tensorboard import SummaryWriter
 import time
-from policy_nn import PolicyNN
+from agent_nn import PolicyNN
 
 def test_process(parameters, shared_model_actor, end_flag, wait_queue, episode_counter, wait_first_test):
     # Create enviroment and agent

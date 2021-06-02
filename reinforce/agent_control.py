@@ -8,9 +8,14 @@ class AgentControl:
     def __init__(self, env, hyperparameters):
         self.learning_rate = hyperparameters['learning_rate']
         self.baseline = hyperparameters['baseline']
-        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.seed = hyperparameters['random_seed']
+        self.device = 'cpu' # 'cuda' if torch.cuda.is_available() else 'cpu'
         self.policy_nn = PolicyNN(env.observation_space.shape[0], env.action_space.n).to(self.device)
         self.optimizer = torch.optim.Adam(params=self.policy_nn.parameters(), lr=self.learning_rate)
+
+        if self.seed != -1:
+            torch.manual_seed(self.seed)
+            torch.cuda.manual_seed(self.seed)
 
     def select_action(self, obs):
         action_prob = self.policy_nn(torch.tensor(obs, dtype=torch.double).to(self.device)).cpu()
@@ -36,3 +41,6 @@ class AgentControl:
             return gt_tensor
         else:
             return gt_tensor - torch.mean(gt_tensor)
+
+    def get_policy_nn(self):
+        return self.policy_nn

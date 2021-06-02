@@ -2,54 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../A3C/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622565656.4491394/events.out.tfevents.1622565659.DESKTOP-3P8CLT4.9588.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=-11622589472.4367764/events.out.tfevents.1622589472.DESKTOP-3P8CLT4.4496.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=-11622590791.476988/events.out.tfevents.1622590791.DESKTOP-3P8CLT4.12148.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=121622587913.2621174/events.out.tfevents.1622587913.DESKTOP-3P8CLT4.7540.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=121622588596.2029142/events.out.tfevents.1622588596.DESKTOP-3P8CLT4.11728.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=121622588722.110044/events.out.tfevents.1622588722.DESKTOP-3P8CLT4.14556.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=121622588805.317141/events.out.tfevents.1622588805.DESKTOP-3P8CLT4.14256.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=121622588868.7486033/events.out.tfevents.1622588869.DESKTOP-3P8CLT4.9712.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=121622588972.4339435/events.out.tfevents.1622588972.DESKTOP-3P8CLT4.15308.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=121622589172.571293/events.out.tfevents.1622589173.DESKTOP-3P8CLT4.9724.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC-16163232-7,10-n=2-e=001-seed=121622589241.1578104/events.out.tfevents.1622589241.DESKTOP-3P8CLT4.3136.0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../A3C/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A3C/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC)/agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 1/events.out.tfevents.1621001596.DESKTOP-3P8CLT4.14172.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 10/events.out.tfevents.1621016598.DESKTOP-3P8CLT4.12300.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 11/events.out.tfevents.1621018454.DESKTOP-3P8CLT4.12300.9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 12/events.out.tfevents.1621019089.DESKTOP-3P8CLT4.6988.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 13/events.out.tfevents.1621021012.DESKTOP-3P8CLT4.6988.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 14/events.out.tfevents.1621021869.DESKTOP-3P8CLT4.6988.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 15/events.out.tfevents.1621022098.DESKTOP-3P8CLT4.6988.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 2/events.out.tfevents.1621001806.DESKTOP-3P8CLT4.14172.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 3/events.out.tfevents.1621004777.DESKTOP-3P8CLT4.2108.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 4/events.out.tfevents.1621005540.DESKTOP-3P8CLT4.2108.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 5/events.out.tfevents.1621005855.DESKTOP-3P8CLT4.2108.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 6/events.out.tfevents.1621006997.DESKTOP-3P8CLT4.2108.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 7/events.out.tfevents.1621008169.DESKTOP-3P8CLT4.8788.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 8/events.out.tfevents.1621011461.DESKTOP-3P8CLT4.11204.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12 9/events.out.tfevents.1621011736.DESKTOP-3P8CLT4.11204.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=12/events.out.tfevents.1620999736.DESKTOP-3P8CLT4.5172.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=121622203108.0223842/events.out.tfevents.1622203108.DESKTOP-3P8CLT4.7264.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=121622203321.7004242/events.out.tfevents.1622203322.DESKTOP-3P8CLT4.3912.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=121622203416.5464013/events.out.tfevents.1622203416.DESKTOP-3P8CLT4.14960.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=121622203924.7841341/events.out.tfevents.1622203925.DESKTOP-3P8CLT4.8076.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=121622204257.6606984/events.out.tfevents.1622204258.DESKTOP-3P8CLT4.3584.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=2-e=001-seed=121622204359.2927053/events.out.tfevents.1622204359.DESKTOP-3P8CLT4.1428.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621069534.8249803/events.out.tfevents.1621069535.DESKTOP-3P8CLT4.2024.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621069680.0071285/events.out.tfevents.1621069680.DESKTOP-3P8CLT4.2024.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621069893.2311692/events.out.tfevents.1621069893.DESKTOP-3P8CLT4.2024.2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621070063.0939314/events.out.tfevents.1621070063.DESKTOP-3P8CLT4.2024.3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621070254.178174/events.out.tfevents.1621070254.DESKTOP-3P8CLT4.2024.4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621070403.7680988/events.out.tfevents.1621070403.DESKTOP-3P8CLT4.2024.5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621070588.9342928/events.out.tfevents.1621070588.DESKTOP-3P8CLT4.2024.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621070777.3899434/events.out.tfevents.1621070777.DESKTOP-3P8CLT4.2024.7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621071117.4594162/events.out.tfevents.1621071117.DESKTOP-3P8CLT4.2024.9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/content/runs/AC1-16163232-7,10-n=4-e=001-seed=121621717946.9698634/events.out.tfevents.1621717947.DESKTOP-3P8CLT4.12248.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC)/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/test_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC)/test_process.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../actor-critic (AC)" />
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -173,6 +126,7 @@
       <workItem from="1622541507584" duration="4735000" />
       <workItem from="1622565488234" duration="37000" />
       <workItem from="1622584634072" duration="727000" />
+      <workItem from="1622631419217" duration="73000" />
     </task>
     <servers />
   </component>

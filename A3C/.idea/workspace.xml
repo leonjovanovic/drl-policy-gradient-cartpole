@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622565656.4491394/events.out.tfevents.1622565659.DESKTOP-3P8CLT4.9588.0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../A2C/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A2C/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC)/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../actor-critic (AC)/test_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/../actor-critic (AC)/test_process.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../actor-critic (AC)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../reinforce" />
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -124,6 +125,7 @@
       <workItem from="1622387779611" duration="600000" />
       <workItem from="1622565527550" duration="192000" />
       <workItem from="1622578208391" duration="344000" />
+      <workItem from="1622632545861" duration="960000" />
     </task>
     <servers />
   </component>
