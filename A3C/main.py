@@ -17,13 +17,13 @@ if __name__ == '__main__':
         'entropy_flag': True,
         'entropy_coef': 0.001,
         'seed': 12,
-        'num_processes': 11,
+        'num_processes': 10,
         'env_name': "CartPole-v1",
         'max_train_games': 1000,
         'max_test_games': 10,
         'writer_test': True,
         'writer_train': False,
-        'writer_log_dir': 'content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++',
+        'writer_log_dir': 'content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10 ',
         'print_test_results': True
     }
     #---------------------------------------------------------------

@@ -41,7 +41,7 @@ def train_process(parameters, rank, shared_model_actor, shared_model_critic, cou
             ep_num += 1
             obs = env.reset()
     # Process will end if test process alerted train processes that we reached goal
-    print("Process " + str(rank) + " ended!")
+    print("Process " + str(rank) + " ended with episode " + str(ep_num) + "!")
     # Close writer and enviroments at the end
     if writer is not None:
         writer.close()
