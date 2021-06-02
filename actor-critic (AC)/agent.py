@@ -50,7 +50,6 @@ class Agent:
         #    np.mean(self.avg_actor_loss[-100:])) + " Avg critic loss: " + str(np.mean(self.avg_critic_loss[-100:])) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
         if self.writer is not None:
             self.writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)
-            self.writer.add_scalar('ep_reward', self.ep_reward, ep_num)
         self.ep_reward = 21
         self.total_actor_loss = []
         self.total_critic_loss = []

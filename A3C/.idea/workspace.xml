@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="" />
+    <list default="true" id="5ab23f1b-ba30-4724-9a38-837879a31c53" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++1622565656.4491394/events.out.tfevents.1622565659.DESKTOP-3P8CLT4.9588.0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A2C/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A2C/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../A2C" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../actor-critic (AC)" />
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -118,6 +122,8 @@
       <workItem from="1622212633254" duration="617000" />
       <workItem from="1622372217182" duration="1271000" />
       <workItem from="1622387779611" duration="600000" />
+      <workItem from="1622565527550" duration="192000" />
+      <workItem from="1622578208391" duration="344000" />
     </task>
     <servers />
   </component>
@@ -141,6 +147,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A3C$process.coverage" NAME="process Coverage Results" MODIFIED="1621722324783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/A3C$main.coverage" NAME="main Coverage Results" MODIFIED="1622148730027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/A3C$main.coverage" NAME="main Coverage Results" MODIFIED="1622565646471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
