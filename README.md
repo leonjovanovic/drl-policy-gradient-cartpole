@@ -1,6 +1,5 @@
-# deep-reinforcement-learning-pg-atari-cartpole
+# Policy gradient algorithms on OpenAI's Cartpole
 Policy gradient algorithms (REINFORCE, Actor-Critic, A2C, A3C) on  OpenAI's Cartpole
-# Deep Q-Learning algorithms on Atari Pong
 
 ## Summary
 
