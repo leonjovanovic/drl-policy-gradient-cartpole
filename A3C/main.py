@@ -10,13 +10,13 @@ if __name__ == '__main__':
     #----------------------PARAMETERS-------------------------------
     MAX_WORKER_GAMES = 1000
     HYPERPARAMETERS = {
-        'lr_actor': 0.0002,
-        'lr_critic': 0.0003,
+        'lr_actor': 0.0007,
+        'lr_critic': 0.001,
         'gamma': 0.99,
         'n-step': 2,
         'entropy_flag': True,
         'entropy_coef': 0.001,
-        'seed': -1,
+        'seed': 12,
         'num_processes': 10,
         'env_name': "CartPole-v1",
         'max_train_games': 1000,

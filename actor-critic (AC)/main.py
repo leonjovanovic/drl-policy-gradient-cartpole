@@ -6,13 +6,13 @@ from torch.utils.tensorboard import SummaryWriter
 import time
 # -----------------------PARAMETERS---------------------------------
 HYPERPARAMETERS = {
-    'learning_rate_actor': 0.0007,
-    'learning_rate_critic': 0.001,
+    'learning_rate_actor': 0.007,
+    'learning_rate_critic': 0.01,
     'gamma': 0.99,
-    'random_seed': -1,
+    'random_seed': 12,
     'entropy': True,
     'entropy_beta': 0.001,
-    'n-step': 2,
+    'n-step': 20,
     'test_counter': 3,
     'env_name': 'CartPole-v1',
     'writer_test': True,
@@ -79,4 +79,4 @@ if __name__ == '__main__':
     env.close()
 
 # For viewing live progress with tensorboard, open new CMD and type line below:
-# !tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\actor-critic (AC1)\content\runs" --host=127.0.0.1
+# !tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\actor-critic (AC)\content\runs" --host=127.0.0.1

@@ -12,10 +12,10 @@ if __name__ == '__main__':
     #----------------------PARAMETERS-------------------------------
     MAX_WORKER_GAMES = 1000
     HYPERPARAMETERS = {
-        'lr_actor': 0.0006,
-        'lr_critic': 0.0007,
+        'lr_actor': 0.014,
+        'lr_critic': 0.02,
         'gamma': 0.99,
-        'n-step': 3,
+        'n-step': 40,
         'entropy_flag': True,
         'entropy_coef': 0.001,
         'seed': 12,
@@ -23,9 +23,9 @@ if __name__ == '__main__':
         'env_name': "CartPole-v1",
         'max_train_games': 1000,
         'max_test_games': 10,
-        'writer_test': False,
+        'writer_test': True,
         'writer_train': False,
-        'writer_log_dir': 'content/runs/A2C-16163232-6,7-n=4-e=001-seed=12-proc=10',
+        'writer_log_dir': 'content/runs/A2C-16163232-140,200e4-n=40-e=001-seed=12-proc=10 ',
         'print_test_results': True
     }
     #---------------------------------------------------------------
@@ -120,14 +120,14 @@ if __name__ == '__main__':
         for rank in range(0, HYPERPARAMETERS['num_processes']):
             continue_queues[rank].put(rank)
         # If its 20th iteration call test process to test current Actor NN parameters
-        if counter == 20:
+        if counter == 2:
             counter = 0
             wait_test.put(1)
         # If test process have signalized that we reached neccecary goal (end_flag is shared variable)
         if end_flag.value == 1:
             break
     # Test alerted that we reached our goal and we broke out of while loop. Now we wait for all train and test processes to end before main terminates
-    for p in processes:
-        p.join()
+    #for p in processes:
+    #    p.join()
 # For viewing live progress with tensorboard, open new CMD and type line below:
 # tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\A2C\content\runs" --host=127.0.0.1
