@@ -1,9 +1,15 @@
 # Policy gradient algorithms on OpenAI's Cartpole
-Policy gradient algorithms (REINFORCE, Actor-Critic, A2C, A3C) on  OpenAI's Cartpole
 
 ## Summary
+&nbsp;&nbsp;&nbsp;&nbsp;The goal of this application is to implement Policy Gradient algorithms on Open AI Cartpole enviroment. Algorithms that were implemented include: 
+  * REINFORCE
+  * Actor-Critic (AC)
+  * A2C
+  * A3C
+Results show difference in efficiency between REINFORCE and Actor-Critic algorithm as well as between A2C and A3C algorithms. Algorithms were compared based on whether algorithm uses multiprocessing or not. As it can be seen on the graph below, Actor-Critic achieves considerable improvement in efficiency over REINFORCE, while A3C shows some improvement comparing to A2C.
 
 ## Environment
+
 
 ## Policy Gradient
 
