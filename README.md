@@ -4,8 +4,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;The goal of this application is to implement Policy Gradient algorithms on Open AI Cartpole enviroment. Algorithms that were implemented include: 
   * [REINFORCE](https://link.springer.com/article/10.1007/BF00992696)
   * [Actor-Critic (AC)](https://ieeexplore.ieee.org/abstract/document/6313077)
-  * [A2C](https://github.com/openai/baselines/blob/master/baselines/a2c/a2c.py)
-  * [A3C](https://arxiv.org/pdf/1602.01783.pdf)
+  * [Synchronized Advantage Actor Critic (A2C)](https://github.com/openai/baselines/blob/master/baselines/a2c/a2c.py)
+  * [Asynchronized Advantage Actor Critic (A3C)](https://arxiv.org/pdf/1602.01783.pdf)
 
 &nbsp;&nbsp;&nbsp;&nbsp;Results show difference in efficiency between REINFORCE and Actor-Critic algorithm as well as between A2C and A3C algorithms. Algorithms were compared based on whether algorithm uses multiprocessing or not. As it can be seen on the graph below, Actor-Critic achieves considerable improvement in efficiency over REINFORCE, while A3C shows some improvement comparing to A2C.
   
