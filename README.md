@@ -8,21 +8,39 @@
   * [A3C](https://arxiv.org/pdf/1602.01783.pdf)
 
 &nbsp;&nbsp;&nbsp;&nbsp;Results show difference in efficiency between REINFORCE and Actor-Critic algorithm as well as between A2C and A3C algorithms. Algorithms were compared based on whether algorithm uses multiprocessing or not. As it can be seen on the graph below, Actor-Critic achieves considerable improvement in efficiency over REINFORCE, while A3C shows some improvement comparing to A2C.
+  
+![Cartpole Gif000](images/000.gif) 
+![Cartpole Gif050](images/050.gif)
+![Cartpole Gif100](images/100.gif)
+
+Actor-Critic: Episode 1 vs Episode 50 vs Episode 100
 
 ## Environment
+&nbsp;&nbsp;&nbsp;&nbsp;Cartpole is OpenAI Classic control enviroment which corresponds to the version of the cart-pole problem described by [Barto, Sutton, and Anderson](https://ieeexplore.ieee.org/abstract/document/6313077). [Cartpole enviroment](https://gym.openai.com/envs/CartPole-v1/) contains a cart and a pole and the cart is only movable object in this enviroment. The pole is attached by an un-actuated joint to a cart, which moves along a frictionless track. The system is controlled by applying a force of +1 or -1 to the cart. The pendulum starts upright, and the goal is to prevent it from falling over. 
 
+![Cartpole Enviroment](images/cartpole_env.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;State (input for neural network) is described with Cart Position, Cart Velocity, Pole Angle and Pole Angular Velocity (Box(4)). Reward is +1 for every step taken, including the termination step. There are two possible actions, Push cart to the left and Push cart to the right which will be output of our neural network.
+
+&nbsp;&nbsp;&nbsp;&nbsp;The episode ends when the pole is more than 15 degrees from vertical, the cart moves more than 2.4 units from the center or episode length is greater than 500.
 
 ## Policy Gradient
+&nbsp;&nbsp;&nbsp;&nbsp; Describe general idea behind Policy Gradient.
 
 ## Structure
+&nbsp;&nbsp;&nbsp;&nbsp; Describe structre of NNs used in this project
 
-## Algo 1
+## REINFORCE algorithm
+&nbsp;&nbsp;&nbsp;&nbsp; Describe REINFORCE
 
-## Algo 2
+## Actor-Critic algorithm
+&nbsp;&nbsp;&nbsp;&nbsp; Describe AC
 
-## Algo 3
+## Synchronized Advantage Actor-Critic (A2C)
+&nbsp;&nbsp;&nbsp;&nbsp; Describe A2C
 
-## Algo 4
+## Asynchronized Advantage Actor-Critic (A3C)
+&nbsp;&nbsp;&nbsp;&nbsp; Describe A3C
 
 ## Results
 
