@@ -7,7 +7,7 @@
   * [Synchronized Advantage Actor Critic (A2C)](https://github.com/leonjovanovic/deep-reinforcement-learning-pg-cartpole/tree/main/A2C) \[[paper](https://github.com/openai/baselines/blob/master/baselines/a2c/a2c.py)\]
   * [Asynchronized Advantage Actor Critic (A3C)](https://github.com/leonjovanovic/deep-reinforcement-learning-pg-cartpole/tree/main/A3C) \[[paper](https://arxiv.org/pdf/1602.01783.pdf)\]
 
-&nbsp;&nbsp;&nbsp;&nbsp;Results show difference in efficiency between REINFORCE and Actor-Critic algorithm as well as between A2C and A3C algorithms. Algorithms were compared based on whether algorithm uses multiprocessing or not. As it can be seen on the graph below, Actor-Critic achieves considerable improvement in efficiency over REINFORCE, while A3C shows some improvement comparing to A2C.
+&nbsp;&nbsp;&nbsp;&nbsp;Results show difference in efficiency between REINFORCE and Actor-Critic algorithm as well as between A2C and A3C algorithms. Algorithms were compared based on whether algorithm uses multiprocessing or not. As it can be seen on the [graph below](https://github.com/leonjovanovic/deep-reinforcement-learning-pg-cartpole/blob/main/README.md#results), Actor-Critic achieves considerable improvement in efficiency over REINFORCE, while A3C shows some improvement comparing to A2C.
   
 ![Cartpole Gif001](images/ac_001.gif) 
 ![Cartpole Gif050](images/ac_050.gif)
