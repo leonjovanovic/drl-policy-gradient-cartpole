@@ -9,9 +9,9 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;Results show difference in efficiency between REINFORCE and Actor-Critic algorithm as well as between A2C and A3C algorithms. Algorithms were compared based on whether algorithm uses multiprocessing or not. As it can be seen on the graph below, Actor-Critic achieves considerable improvement in efficiency over REINFORCE, while A3C shows some improvement comparing to A2C.
   
-![Cartpole Gif000](images/000.gif) 
-![Cartpole Gif050](images/050.gif)
-![Cartpole Gif100](images/100.gif)
+![Cartpole Gif000](images/ac_001.gif) 
+![Cartpole Gif050](images/ac_050.gif)
+![Cartpole Gif100](images/ac_100.gif)
 
 Actor-Critic: Episode 1 vs Episode 50 vs Episode 100
 
