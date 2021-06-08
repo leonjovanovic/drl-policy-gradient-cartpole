@@ -50,7 +50,7 @@ if __name__ == '__main__':
         # If test process have signalized that we reached neccecary goal (end_flag is shared variable)
         if end_flag.value == 1:
             break
-        #env.render()
+        env.render()
         # Give current state to NN and get action from it
         action = agent.select_action(obs)
         # Take that action and retreive next state, reward and is it terminal state

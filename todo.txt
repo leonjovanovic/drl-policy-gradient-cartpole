@@ -11,3 +11,6 @@ A2C:
 SAC:
 -Not started-
 ACTR?
+
+tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\results\A2C-A3C" --host=127.0.0.1
+    
