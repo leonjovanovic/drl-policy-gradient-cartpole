@@ -25,13 +25,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;The episode ends when the pole is more than 15 degrees from vertical, the cart moves more than 2.4 units from the center or episode length is greater than 500.
 
 ## Policy Gradient
-&nbsp;&nbsp;&nbsp;&nbsp; Describe general idea behind Policy Gradient.
+&nbsp;&nbsp;&nbsp;&nbsp; Policy gradient methods are a type of reinforcement learning techniques that rely upon optimizing parametrized policies with respect to the expected return (long-term cumulative reward) by gradient descent. The policy is parametrized with neural network where input is 4x1 vector that represents current state and output is 2x1 vector with probabilities of each action. In case of Actor-Critic and its variants, two different neural networks were used, one for Actor (which is same as the policy network described previously) and Critic neural network which represents value function whose role is to estimate how good of a choise was an action chosen by Actor (policy). 
 
-## Structure
-&nbsp;&nbsp;&nbsp;&nbsp; Describe structre of NNs used in this project
+![Actor-Critic NN structure](images/nns.png)
 
 ## REINFORCE algorithm
-&nbsp;&nbsp;&nbsp;&nbsp; Describe REINFORCE
+&nbsp;&nbsp;&nbsp;&nbsp;REINFORCE (Monte-Carlo policy gradient) relies on an estimated return by Monte-Carlo methods using episode samples to update the policy network parameters. Its Monte-Carlo method because it relies on full trajectories. Gamma, baseline
 
 ## Actor-Critic algorithm
 &nbsp;&nbsp;&nbsp;&nbsp; Describe AC
