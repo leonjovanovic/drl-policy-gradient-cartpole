@@ -13,7 +13,7 @@
 ![Cartpole Gif050](images/ac_050.gif)
 ![Cartpole Gif100](images/ac_100.gif)
 
-Actor-Critic: Episode 1 vs Episode 50 vs Episode 100
+*Actor-Critic: Episode 1 vs Episode 50 vs Episode 100*
 
 ## Environment
 &nbsp;&nbsp;&nbsp;&nbsp;Cartpole is OpenAI Classic control enviroment which corresponds to the version of the cart-pole problem described by [Barto, Sutton, and Anderson](https://ieeexplore.ieee.org/abstract/document/6313077). [Cartpole enviroment](https://gym.openai.com/envs/CartPole-v1/) contains a cart and a pole and the cart is only movable object in this enviroment. The pole is attached by an un-actuated joint to a cart, which moves along a frictionless track. The system is controlled by applying a force of +1 or -1 to the cart. The pendulum starts upright, and the goal is to prevent it from falling over. 
