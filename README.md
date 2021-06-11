@@ -30,7 +30,7 @@
 ![Actor-Critic NN structure](images/nns.png)
 
 ## REINFORCE algorithm
-&nbsp;&nbsp;&nbsp;&nbsp;REINFORCE (Monte-Carlo policy gradient) relies on an estimated return by Monte-Carlo methods using episode samples to update the policy network parameters. Its Monte-Carlo method because it relies on full trajectories. Gamma, baseline
+&nbsp;&nbsp;&nbsp;&nbsp;REINFORCE (Monte-Carlo policy gradient) relies on an estimated return by Monte-Carlo methods using episode samples to update the policy network parameters. Its Monte-Carlo method because it relies on full trajectories. 
 
 ## Actor-Critic algorithm
 &nbsp;&nbsp;&nbsp;&nbsp; Describe AC
