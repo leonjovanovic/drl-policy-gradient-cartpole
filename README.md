@@ -20,6 +20,8 @@
 
 ![Cartpole Enviroment](images/cartpole_env.png)
 
+*Cartpole Enviroment*
+
 &nbsp;&nbsp;&nbsp;&nbsp;State (input for neural network) is described with Cart Position, Cart Velocity, Pole Angle and Pole Angular Velocity (Box(4)). Reward is +1 for every step taken, including the termination step. There are two possible actions, Push cart to the left and Push cart to the right which will be output of our neural network.
 
 &nbsp;&nbsp;&nbsp;&nbsp;The episode ends when the pole is more than 15 degrees from vertical, the cart moves more than 2.4 units from the center or episode length is greater than 500. Goal is reached when algorithm achieves mean score of 495 or higher on last 100 episodes (games).
@@ -28,6 +30,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp; Policy gradient methods are a type of reinforcement learning techniques that rely upon optimizing parametrized policies with respect to the expected return (long-term cumulative reward) by gradient descent. The policy is parametrized with neural network where input is 4x1 vector that represents current state and output is 2x1 vector with probabilities of each action. In case of Actor-Critic and its variants, two different neural networks were used, one for Actor (which is same as the policy network described previously) and Critic neural network which represents value function whose role is to estimate how good of a choise was an action chosen by Actor (policy). 
 
 ![Actor-Critic NN structure](images/nns.png)
+
+*Actor-Critic Neural Network structure*
 
 ## REINFORCE algorithm
 &nbsp;&nbsp;&nbsp;&nbsp;REINFORCE (Monte-Carlo policy gradient) relies on an estimated return by Monte-Carlo methods using episode samples to update the policy network parameters. Its Monte-Carlo method because it relies on full trajectories. A widely used variation of REINFORCE is to subtract a baseline value from the return Gt to reduce the variance of gradient estimation while keeping the bias unchanged (Remember we always want to do this when possible). In this version we used mean discounted reward as baseline.
