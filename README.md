@@ -65,6 +65,7 @@
     * **REINFORCE: after 126 games**
     * **Actor-Critic: after 510 games**
 
+---
 ### A2C vs A3C
 &nbsp;&nbsp;&nbsp;&nbsp; Results can be seen on graph below, where X axis represents number of steps (time-steps) finished and Y axis represents mean reward of last 100 episodes. We can't measure comparing results to episodes like in comparison above because in A3C each process is on different episode. They have different episodes because of different start time and different episode lenght. We can only estimate episode by taking maximum episode count of all processes.
 
