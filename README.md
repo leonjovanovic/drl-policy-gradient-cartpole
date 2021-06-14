@@ -59,8 +59,8 @@
 
 ![REINFORCE vs AC](images/reinforce_vs_ac.jpg)
 
-- ![#ee3377](https://via.placeholder.com/15/ee3377/000000?text=+) `REINFORCE`
-- ![#359a3c](https://via.placeholder.com/15/359a3c/000000?text=+) `Actor-Critic`
+- ![#ee3377](https://via.placeholder.com/15/ee3377/000000?text=+) `REINFORCE algorithm`
+- ![#359a3c](https://via.placeholder.com/15/359a3c/000000?text=+) `Actor-Critic algorithm`
 
 &nbsp;&nbsp;&nbsp;&nbsp; As it can be seen Actor-Critic algorithm reached goal much more quickly than REINFORCE with almost 400 episode difference between their best results. It also shows that AC is much more stable as some REINFORCE runs achieve score of over 475 after 250/300 episodes but fails to be stable enough to get higher mean reward until 200 episodes later.
 
@@ -74,8 +74,8 @@
 
 ![A2C vs A3C](images/a2c_vs_a3c.jpg)
 
-- ![#ee3377](https://via.placeholder.com/15/ee3377/000000?text=+) `A2C`
-- ![#359a3c](https://via.placeholder.com/15/359a3c/000000?text=+) `A3C`
+- ![#ee3377](https://via.placeholder.com/15/ee3377/000000?text=+) `Synchronized Advantage Actor-Critic (A2C)`
+- ![#359a3c](https://via.placeholder.com/15/359a3c/000000?text=+) `Asynchronized Advantage Actor-Critic (A3C)`
 
 &nbsp;&nbsp;&nbsp;&nbsp; Graph shows that in average both algorithms perform similary but A3C performes much better in few cases. If we look only at stable results, A3C slightly outperformes A2C.
 
