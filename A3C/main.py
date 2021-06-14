@@ -10,10 +10,10 @@ if __name__ == '__main__':
     #----------------------PARAMETERS-------------------------------
     MAX_WORKER_GAMES = 1000
     HYPERPARAMETERS = {
-        'lr_actor': 0.0007,
-        'lr_critic': 0.001,
+        'lr_actor': 0.007,
+        'lr_critic': 0.01,
         'gamma': 0.99,
-        'n-step': 2,
+        'n-step': 20,
         'entropy_flag': True,
         'entropy_coef': 0.001,
         'seed': 12,
@@ -21,7 +21,7 @@ if __name__ == '__main__':
         'env_name': "CartPole-v1",
         'max_train_games': 1000,
         'max_test_games': 10,
-        'writer_test': True,
+        'writer_test': False,
         'writer_train': False,
         'writer_log_dir': 'content/runs/AC3-16163232-2,3-n=2-e=001-seed=12++-10 ',
         'print_test_results': True
