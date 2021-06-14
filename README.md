@@ -70,14 +70,14 @@
 
 ![Actor-Critic NN structure](images/reinforce_vs_ac.jpg)
 
-&nbsp;&nbsp;&nbsp;&nbsp; Graph shows that in average both algorithms perform similary but A3C in case of Cartpole performes much better in few cases.
+&nbsp;&nbsp;&nbsp;&nbsp; Graph shows that in average both algorithms perform similary but A3C performes much better in few cases. If we look only at stable results, A3C slightly outperformes A2C.
 
 * Best mean reward in last 100 games
     * **A2C: after 33.6k steps - 45 games**
-    * **A3C: after 6.6k steps - approx. **
+    * **A3C: after 6.6k steps** 
 
 ## Rest of the data and TensorBoard
-&nbsp;&nbsp;&nbsp;&nbsp;Rest of the training data can be found at [/content/runs](https://github.com/leonjovanovic/deep-reinforcement-learning-atari-pong/tree/main/content/runs). If you wish to see it and compare it with the rest, I recommend using TensorBoard. After installation simply change the directory where the data is stored, use the following command
+&nbsp;&nbsp;&nbsp;&nbsp;Rest of the training data can be found at [/results](https://github.com/leonjovanovic/deep-reinforcement-learning-atari-pong/tree/main/results). If you wish to see it and compare it with the rest, I recommend using TensorBoard. After installation simply change the directory where the data is stored, use the following command
   
 ```python
 LOG_DIR = "full\path\to\data"
@@ -85,8 +85,6 @@ tensorboard --logdir=LOG_DIR --host=127.0.0.1
 ```
 and open http://localhost:6006 in your browser.
 For information about installation and further questions visit [TensorBoard github](https://github.com/tensorflow/tensorboard/blob/master/README.md)
-
-## Future improvements
   
 
 
