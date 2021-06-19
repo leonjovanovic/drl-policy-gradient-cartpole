@@ -24,21 +24,26 @@ class Agent:
         return self.agent_control.choose_action(obs)
 
     def improve_params(self, obs, action, new_obs, reward, done):
+        # Update episode reward sum
         self.ep_reward += reward
-
+        # If agent didnt reached n-step or end just collect transition and return, do not update NNs
         if (self.step < self.n_step - 1) and not done:
             self.memory.append(Memory(obs=obs, action=action, new_obs=new_obs, reward=reward))
             self.step += 1
             return
         self.memory.append(Memory(obs=obs, action=action, new_obs=new_obs, reward=reward))
-
+        # Calculate discounted rewards, and reverse state|action list because we had to reverse reward list
         rewards, states, actions = self.agent_control.calc_rewards_states(self.memory)
         self.critic_loss = self.agent_control.update_critic_nn(rewards, states)
+        # Calculate advantage for every transition
         advantage = self.agent_control.evaluate_advantage(self.memory)
+        # Calculate loss and update NN parameters
         self.actor_loss = self.agent_control.update_actor_nn(advantage, states, actions)
+        # Reset n-step counter
         self.step = 0
+        # Reset memory after each update
         self.memory = []
-
+        # Record losses for statistics
         self.total_actor_loss.append(self.actor_loss)
         self.total_critic_loss.append(self.critic_loss)
 
