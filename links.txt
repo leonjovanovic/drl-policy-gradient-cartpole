@@ -2,7 +2,7 @@ http://rail.eecs.berkeley.edu/deeprlcourse/
 https://lilianweng.github.io/lil-log/2018/04/08/policy-gradient-algorithms.html#reinforce
 https://towardsdatascience.com/policy-gradient-methods-104c783251e0
 https://github.com/andri27-ts/Reinforcement-Learning/blob/master/Week4/PolicyGradient.ipynb
-https://www.youtube.com/watch?v=Tol_jw5hWnI&list=PLkFD6_40KJIxJMR-j5A1mkxK26gh_qg37&index=5
+https://www.youtube.com/watch?v=Tol_jw5hWnI&list=PLkFD6_40KJIxJMR-j5A1mkxK26gh_qg37&index=5https://www.youtube.com/watch?v=2pWv7GOvuf0&list=PLqYmG7hTraZDM-OYHWgPebj2MfCFzFObQ
 
 Entropy: https://towardsdatascience.com/entropy-regularization-in-reinforcement-learning-a6fa6d7598df
 
