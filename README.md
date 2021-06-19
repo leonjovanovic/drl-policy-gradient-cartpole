@@ -28,27 +28,27 @@
 &nbsp;&nbsp;&nbsp;&nbsp;The episode ends when the pole is **more than 15 degrees from vertical**, the cart moves **more than 2.4 units from the center** or episode length is **greater than 500**. Goal is reached when algorithm achieves **mean score of 495 or higher on last 100 episodes (games)**.
 
 ## Policy Gradient
-&nbsp;&nbsp;&nbsp;&nbsp; Policy gradient methods are a type of reinforcement learning techniques that rely upon optimizing parametrized policies with respect to the expected return (long-term cumulative reward) by gradient descent. The policy is parametrized with neural network where input is 4x1 vector that represents current state and output is 2x1 vector with probabilities of each action. In case of Actor-Critic and its variants, two different neural networks were used, one for Actor (which is same as the policy network described previously) and Critic neural network which represents value function whose role is to estimate how good of a choise was an action chosen by Actor (policy). 
+&nbsp;&nbsp;&nbsp;&nbsp; Policy gradient methods are a type of reinforcement learning techniques that rely upon optimizing parametrized policies with respect to the expected return (long-term cumulative reward) by gradient descent. The policy is parametrized with neural network, where input is 4x1 vector that represents current state and output is 2x1 vector with probabilities of each action. In case of Actor-Critic and its variants, two different neural networks were used, one for Actor (which is same as the policy network described previously) and Critic neural network which represents value function whose role is to estimate how good of a choise was an action chosen by Actor (policy). 
 
 ![Actor-Critic NN structure](images/nns.png)
 
 *Actor-Critic Neural Network structure*
 
 ## REINFORCE algorithm
-&nbsp;&nbsp;&nbsp;&nbsp;REINFORCE (Monte-Carlo policy gradient) relies on an estimated return by Monte-Carlo methods using episode samples to update the policy network parameters. Its Monte-Carlo method because it relies on full trajectories. A widely used variation of REINFORCE is to subtract a baseline value from the return Gt to reduce the variance of gradient estimation while keeping the bias unchanged (Remember we always want to do this when possible). In this version we used mean discounted reward as baseline.
+&nbsp;&nbsp;&nbsp;&nbsp;REINFORCE (Monte-Carlo policy gradient) relies on an estimated return by Monte-Carlo methods using episode samples to update the policy network parameters. Its Monte-Carlo method because it relies on full trajectories. A widely used variation of REINFORCE is to subtract a baseline value from the return Gt to reduce the variance of gradient estimation while keeping the bias unchanged. In this version we used mean discounted reward as baseline.
 
 ## Actor-Critic algorithm
-&nbsp;&nbsp;&nbsp;&nbsp; Actor-Critic algorithm expandes REINFORCE where in addition to the policy (Actor) algorithm implements value function (Critic) which will resolve wether the action Actor took was good one or not. Unlike REINFORCE agent does not wait for entire episode to finish to update policy and value function but do it after N steps using TD learning (estimated discounted rewards). Each step represents one time-step in which agent needs to decide wether to go left or right. To improve the exploration of the agent, entropy regularization was implemented.
+&nbsp;&nbsp;&nbsp;&nbsp; Actor-Critic algorithm expandes REINFORCE where in addition to the policy (Actor) algorithm implements value function (Critic) which will resolve wether the action Actor took was good one or not. Unlike REINFORCE agent does not wait for entire episode to finish to update policy and value function, but do it after N steps using TD learning (estimated discounted rewards). Each step represents one time-step in which agent needs to decide whether to go left or right. To improve the exploration of the agent, entropy regularization was implemented.
 
 &nbsp;&nbsp;&nbsp;&nbsp; Since there is no clear line between Actor-Critic algorithm and A2C, this Actor-Critic algorithm was implemented with Advantage function (baseline) while syncronization was left for A2C. Critic's value function was used as advantage.
 
 ## Synchronized Advantage Actor-Critic (A2C)
-&nbsp;&nbsp;&nbsp;&nbsp; Synchronized Advantage Actor-Critic (A2C) was first introduced as one of OpenAI's baselines which is basically Actor-Critic algorithm with multiple workers (processes). Workers collect N steps transitions, after which they are blocked in queue. When all workers finish collecting, main process use those informations to update both Actor and Critic NN parameters. At the end main unblocks all train processes waiting in queue. Multiprocessesing is done by [PyTorch multiprocessing library](https://pytorch.org/docs/stable/multiprocessing.html). 
+&nbsp;&nbsp;&nbsp;&nbsp; Synchronized Advantage Actor-Critic (A2C) was first introduced as one of OpenAI's baselines which is basically Actor-Critic algorithm with multiple workers (processes). Workers collect N steps transitions, after which they are blocked in queue. When all workers finish collecting, main process use those informations to update both Actor and Critic NN parameters. At the end main process unblocks all train processes waiting in queue. Multiprocessesing is done by [PyTorch multiprocessing library](https://pytorch.org/docs/stable/multiprocessing.html). 
 
 &nbsp;&nbsp;&nbsp;&nbsp; Each train process needs to send N transitions (current & new state, actions, rewards and entropies) and communication is done by queues. Sending Object type variable throughout queues would trigger [multiprocessing.Queue](https://docs.python.org/3/library/multiprocessing.html) to cause Memory leak. Because of that, multiple queues were implemented for each type of information (current & new state, actions...).
 
 ## Asynchronized Advantage Actor-Critic (A3C)
-&nbsp;&nbsp;&nbsp;&nbsp; Asynchronized Advantage Actor-Critic (A3C) algorithm was used from paper [Mnih et al.](https://arxiv.org/pdf/1602.01783.pdf). It introduces version of Actor-Critic algorithm where each worker (train process) works independently while sharing two global neural networks (Actor & Critic). At the start of each iteration worker saves local copy of policy and value function, collects N step transitions, calculates loss and updates global Actor and Critic NNs.
+&nbsp;&nbsp;&nbsp;&nbsp; Asynchronized Advantage Actor-Critic (A3C) algorithm implementation was used from paper [Mnih et al.](https://arxiv.org/pdf/1602.01783.pdf). It introduces version of Actor-Critic algorithm where each worker (train process) works independently while sharing two global neural networks (Actor & Critic). At the start of each iteration worker saves local copy of policy and value function, collects N step transitions, calculates loss and updates global Actor and Critic NNs.
 
 ## Testing
 &nbsp;&nbsp;&nbsp;&nbsp; To get accurate results, each algorithm has additional worker (test process) whose job is to occasionally test 10 episodes and calculate mean reward of last 10 episodes. By the rules, if test process gets 495 or higher mean score over last 100 games, goal is reached and we should terminate. 
@@ -64,10 +64,10 @@
 
 ![REINFORCE vs AC](images/reinforce_vs_ac.jpg)
 
-- ![#ee3377](https://via.placeholder.com/15/ee3377/000000?text=+) `REINFORCE algorithm`
-- ![#359a3c](https://via.placeholder.com/15/359a3c/000000?text=+) `Actor-Critic algorithm`
+- ![#ee3377](https://via.placeholder.com/15/ee3377/000000?text=+) `Actor-Critic algorithm`
+- ![#359a3c](https://via.placeholder.com/15/359a3c/000000?text=+) `REINFORCE algorithm`
 
-&nbsp;&nbsp;&nbsp;&nbsp; As it can be seen Actor-Critic algorithm reached goal much more quickly than REINFORCE with almost 400 episode difference between their best results. It also shows that AC is much more stable as some REINFORCE runs achieve score of over 475 after 250/300 episodes but fails to be stable enough to get higher mean reward until 200 episodes later.
+&nbsp;&nbsp;&nbsp;&nbsp; As it can be seen, Actor-Critic algorithm reached the goal much more quickly than REINFORCE with almost 400 episode difference between their best results. It also shows that AC is much more stable as some REINFORCE runs achieve score of over 475 after 250-300 episodes but fail to be stable enough to get higher mean reward until 200 episodes later.
 
 * Best mean reward in last 100 games
     * **REINFORCE: after 126 games**
@@ -89,7 +89,7 @@
     * **A3C: after 6.6k steps** 
 
 ## Rest of the data and TensorBoard
-&nbsp;&nbsp;&nbsp;&nbsp;Rest of the training data can be found at [/results](https://github.com/leonjovanovic/deep-reinforcement-learning-atari-pong/tree/main/results). If you wish to see it and compare it with the rest, I recommend using TensorBoard. After installation simply change the directory where the data is stored, use the following command
+&nbsp;&nbsp;&nbsp;&nbsp;Rest of the training data can be found at [/results](/results). If you wish to see it and compare it with the rest, I recommend using TensorBoard. After installation simply change the directory where the data is stored, use the following command
   
 ```python
 LOG_DIR = "full\path\to\data"
