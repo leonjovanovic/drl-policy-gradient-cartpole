@@ -38,7 +38,7 @@ class AgentControl:
         action_prob = self.actor_nn(torch.tensor(obs, dtype=torch.double).to(self.device))
         # We dont take higher probability but take random value of 0 or 1 based on probabilities from NN
         action = np.random.choice(np.array([0, 1]), p=action_prob.cpu().data.numpy())
-        # Add sum of probability*log(probability) to list so we can count mean of list when we calculate loss
+        # Add sum of probability*log(probability) to entropy list so we can count mean of entropy list when we calculate loss
         # We detach grads since we dont need them when we do loss.backwards() in future
         if self.entropy_flag:
             self.entropy.append(-self.entropy_coef * torch.sum(action_prob * torch.log(action_prob)).detach())
@@ -120,7 +120,6 @@ class AgentControl:
         action_prob = action_prob[range(action_prob.shape[0]), actions]
         # Loss is calculated as log(x) * x for each step. We calculate mean to get single value loss and add minus because torch.log will add additional minus.
         loss = -torch.mean(torch.log(action_prob) * advantage)
-
         # Add entropy if flag is true
         if self.entropy_flag:
             loss += torch.mean(torch.tensor(self.entropy, dtype=torch.float64).to(self.device).detach())
