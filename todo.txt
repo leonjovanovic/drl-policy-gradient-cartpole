@@ -3,14 +3,10 @@ REINFORCE:
 AC1:
 *Done*
 A3C:
-*Algorithm complete*
-+tune params(n-step, lr, seed, num_processes)
-+write comments
+*Done*
 A2C:
--Not started-
+*Done*
 SAC:
 -Not started-
-ACTR?
-
-tensorboard --logdir "D:\Users\Leon Jovanovic\Documents\Computer Science\Reinforcement Learning\deep-reinforcement-learning-pg-cartpole\results\A2C-A3C" --host=127.0.0.1
-    
+ACTR:
+-Not started-
