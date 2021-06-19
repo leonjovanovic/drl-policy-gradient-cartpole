@@ -23,6 +23,7 @@
 *Cartpole Enviroment*
 
 &nbsp;&nbsp;&nbsp;&nbsp;State is described with Cart Position, Cart Velocity, Pole Angle and Pole Angular Velocity. Reward is +1 for every step taken, including the termination step. There are two possible actions, Push cart to the left and Push cart to the right which will be output of our neural network.
+
 ---
 &nbsp;&nbsp;&nbsp;&nbsp;The episode ends when the pole is **more than 15 degrees from vertical**, the cart moves **more than 2.4 units from the center** or episode length is **greater than 500**. Goal is reached when algorithm achieves **mean score of 495 or higher on last 100 episodes (games)**.
 
