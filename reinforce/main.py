@@ -67,7 +67,9 @@ if __name__ == '__main__':
             obs = env.reset()
             ep_num += 1
             episode.value += 1
+            # Let test process test new parameters
             wait_queue.put(0)
+    # Wait for test process to end before terminating main
     p.join()
     if writer_train is not None:
         writer_train.close()

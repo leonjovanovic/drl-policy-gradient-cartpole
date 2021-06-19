@@ -20,19 +20,24 @@ class Agent:
         return self.agent_control.select_action(obs)
 
     def add_to_buffer(self, obs, action, new_obs, reward):
+        # Add each information to lists
         self.episode_obs.append(obs)
         self.episode_action.append(action)
         self.episode_new_obs.append(new_obs)
         self.episode_reward.append(reward)
 
     def improve_params(self):
+        # We need to first estimate return for each state
         gt = self.estimate_return()
+        # Calculate loss based on reward return and update NN parameters
         self.loss = self.agent_control.improve_params(gt, self.episode_obs, self.episode_action)
+        # Append to loss list for statistics
         self.total_loss.append(self.loss/len(self.episode_obs))
 
     def estimate_return(self):
         gt = []
         n = len(self.episode_obs)
+        # For each state in episode we calucate return based on actions we took in "future"
         for i in range(n):
             j = i
             power = 0
@@ -47,7 +52,6 @@ class Agent:
     def reset_values(self, ep_num):
         self.episode_reward.append(21)
         self.total_reward.append(sum(self.episode_reward))
-        #print("Episode "+str(ep_num)+" total reward: " + str(sum(self.episode_reward)) + " Loss: " + str(np.mean(self.total_loss[-100:])) + " Average reward: " + str(np.mean(self.total_reward[-100:])))
         if self.summary_writer is not None:
             self.summary_writer.add_scalar('mean_reward', np.mean(self.total_reward[-100:]), ep_num)
             self.summary_writer.add_scalar('ep_reward', sum(self.episode_reward), ep_num)

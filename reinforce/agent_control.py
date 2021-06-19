@@ -18,20 +18,29 @@ class AgentControl:
             torch.cuda.manual_seed(self.seed)
 
     def select_action(self, obs):
+        # We send current state as NN input and get two probabilities for each action (in sum of 1)
         action_prob = self.policy_nn(torch.tensor(obs, dtype=torch.double).to(self.device)).cpu()
+        # We dont take higher probability but take random value of 0 or 1 based on probabilities from NN
         action = np.random.choice(np.array([0, 1]), p=action_prob.data.numpy())
         return action
 
     def improve_params(self, gt, obs, actions):
+        # Calculate and subtract baseline
         gt_tensor = self.subtract_baseline(gt)
+        # Transform to Tensor
         actions_tensor = torch.LongTensor(actions).to(self.device)
+        # Again calculate predictions for same states so we can calculate log
         predictions = self.policy_nn(torch.tensor(obs, dtype=torch.double).to(self.device))
         action_prob_tensor = torch.log(predictions)
+        # We need log(prediction) of only actions we took, rest we discard.
         action_prob_tensor = action_prob_tensor[range(action_prob_tensor.shape[0]), actions_tensor]
+        # Calculate loss
         loss = -torch.sum(action_prob_tensor * gt_tensor)
-
+        # We need to set the gradients to zero before starting to do backpropragation because PyTorch accumulates the gradients on subsequent backward passes
         self.optimizer.zero_grad()
+        # Calculate loss derivative
         loss.backward()
+        # Update current parameters based on calculated derivatives wtih Adam optimizer
         self.optimizer.step()
         return int(loss.item())
 
