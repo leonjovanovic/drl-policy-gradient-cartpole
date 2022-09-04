@@ -70,8 +70,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp; As it can be seen, Actor-Critic algorithm reached the goal much more quickly than REINFORCE with almost 400 episode difference between their best results. It also shows that AC is much more stable as some REINFORCE runs achieve score of over 475 after 250-300 episodes but fail to be stable enough to get higher mean reward until 200 episodes later.
 
 * Best mean reward in last 100 games
-    * **REINFORCE: after 126 games**
-    * **Actor-Critic: after 510 games**
+    * **REINFORCE: after 510 games**
+    * **Actor-Critic: after 126 games**
 
 ---
 ### A2C vs A3C
